@@ -7,9 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "MultiSelectSegmentedControl.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) MultiSelectSegmentedControl* daysControl;
+@property (strong, nonatomic) IBOutlet UITextField *indexField;
+@property (strong, nonatomic) IBOutlet UITextField *titleField;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *multiSelectControl;
 @end
 
 @implementation ViewController
@@ -17,13 +21,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+//    self.daysControl = [[MultiSelectSegmentedControl alloc] initWithItems:@[@"Sun", @"Mon", @"Tue", @"Wed", @"Thu", @"Fri", @"Sat"]];
+//    self.daysControl.segmentedControlStyle = UISegmentedControlStyleBar;
+//    [self.view addSubview:self.daysControl];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)addSegment {
+    NSUInteger index = [self.indexField.text intValue];
+    [self.multiSelectControl insertSegmentWithTitle:self.titleField.text atIndex:index animated:YES];
+    self.titleField.text = @"";
+}
+
+- (IBAction)removeSegment {
+    NSUInteger index = [self.indexField.text intValue];
+    [self.multiSelectControl removeSegmentAtIndex:index animated:YES];
 }
 
 @end

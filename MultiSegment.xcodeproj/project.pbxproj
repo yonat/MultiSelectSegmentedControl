@@ -19,6 +19,7 @@
 		DC72F70D172167E9007E5CC6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC72F70C172167E9007E5CC6 /* ViewController.m */; };
 		DC72F710172167E9007E5CC6 /* ViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC72F70E172167E9007E5CC6 /* ViewController_iPhone.xib */; };
 		DC72F713172167E9007E5CC6 /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC72F711172167E9007E5CC6 /* ViewController_iPad.xib */; };
+		DC72F71B1721695D007E5CC6 /* MultiSelectSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = DC72F71A1721695D007E5CC6 /* MultiSelectSegmentedControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		DC72F70C172167E9007E5CC6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DC72F70F172167E9007E5CC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPhone.xib; sourceTree = "<group>"; };
 		DC72F712172167E9007E5CC6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		DC72F7191721695D007E5CC6 /* MultiSelectSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiSelectSegmentedControl.h; sourceTree = SOURCE_ROOT; };
+		DC72F71A1721695D007E5CC6 /* MultiSelectSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiSelectSegmentedControl.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 		DC72F6E7172167E9007E5CC6 = {
 			isa = PBXGroup;
 			children = (
+				DC72F7191721695D007E5CC6 /* MultiSelectSegmentedControl.h */,
+				DC72F71A1721695D007E5CC6 /* MultiSelectSegmentedControl.m */,
 				DC72F6F9172167E9007E5CC6 /* MultiSegment */,
 				DC72F6F2172167E9007E5CC6 /* Frameworks */,
 				DC72F6F1172167E9007E5CC6 /* Products */,
@@ -180,6 +185,7 @@
 				DC72F700172167E9007E5CC6 /* main.m in Sources */,
 				DC72F704172167E9007E5CC6 /* AppDelegate.m in Sources */,
 				DC72F70D172167E9007E5CC6 /* ViewController.m in Sources */,
+				DC72F71B1721695D007E5CC6 /* MultiSelectSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
