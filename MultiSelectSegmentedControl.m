@@ -20,7 +20,7 @@
     return self.selectedIndexes;
 }
 
-- (void)setselectedSegmentIndexes:(NSIndexSet *)selectedSegmentIndexes
+- (void)setSelectedSegmentIndexes:(NSIndexSet *)selectedSegmentIndexes
 {
     NSIndexSet *validIndexes = [selectedSegmentIndexes indexesPassingTest:^BOOL(NSUInteger idx, BOOL *stop) {
         return idx < self.numberOfSegments;
