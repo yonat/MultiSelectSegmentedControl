@@ -38,18 +38,6 @@
 
 #pragma mark - Internals
 
-- (void)valueChanged
-{
-    NSUInteger tappedSegementIndex = super.selectedSegmentIndex;
-    if ([self.selectedIndexes containsIndex:tappedSegementIndex]) {
-        [self.selectedIndexes removeIndex:tappedSegementIndex];
-    }
-    else {
-        [self.selectedIndexes addIndex:tappedSegementIndex];
-    }
-    [self selectSegmentsOfSelectedIndexes];
-}
-
 - (void)initSortedSegmentsArray
 {
     self.sortedSegments = nil;
@@ -69,14 +57,31 @@
     }
 }
 
-#pragma mark - Overrides
+- (void)valueChanged
+{
+    NSUInteger tappedSegementIndex = super.selectedSegmentIndex;
+    if ([self.selectedIndexes containsIndex:tappedSegementIndex]) {
+        [self.selectedIndexes removeIndex:tappedSegementIndex];
+    }
+    else {
+        [self.selectedIndexes addIndex:tappedSegementIndex];
+    }
+    [self selectSegmentsOfSelectedIndexes];
+}
+
+#pragma mark - Initialization
+
+- (void)onInit
+{
+    [self addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
+    self.selectedIndexes = [NSMutableIndexSet indexSet];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
-        self.selectedIndexes = [NSMutableIndexSet indexSet];
+        [self onInit];
     }
     return self;
 }
@@ -94,12 +99,13 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
-        self.selectedIndexes = [NSMutableIndexSet indexSet];
+        [self onInit];
         [self initSortedSegmentsArray];
     }
     return self;
 }
+
+#pragma mark - Overrides
 
 - (void)setMomentary:(BOOL)momentary
 {
@@ -116,29 +122,34 @@
     return [self.selectedIndexes firstIndex];
 }
 
+- (void)onInsertSegmentAtIndex:(NSUInteger)segment
+{
+    [self.selectedIndexes shiftIndexesStartingAtIndex:segment by:1];
+    [self initSortedSegmentsArray];
+}
+
 - (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)segment animated:(BOOL)animated
 {
     [super insertSegmentWithTitle:title atIndex:segment animated:animated];
-    [self.selectedIndexes shiftIndexesStartingAtIndex:segment by:1];
-    [self initSortedSegmentsArray];
+    [self onInsertSegmentAtIndex:segment];
 }
 
 - (void)insertSegmentWithImage:(UIImage *)image atIndex:(NSUInteger)segment animated:(BOOL)animated
 {
     [super insertSegmentWithImage:image atIndex:segment animated:animated];
-    [self.selectedIndexes shiftIndexesStartingAtIndex:segment by:1];
-    [self initSortedSegmentsArray];
+    [self onInsertSegmentAtIndex:segment];
 }
 
 - (void)removeSegmentAtIndex:(NSUInteger)segment animated:(BOOL)animated
 {
+    // bounds check to avoid exceptions
     NSUInteger n = self.numberOfSegments;
     if (n == 0) return;
     if (segment >= n) segment = n - 1;
 
     // store multiple selection
     NSMutableIndexSet *newSelectedIndexes = [[NSMutableIndexSet alloc] initWithIndexSet:self.selectedIndexes];
-    [newSelectedIndexes addIndex:segment]; // workaround apple bug: shiftIndexesStartingAtIndex doesn't unify ranges, but addIndex does
+    [newSelectedIndexes addIndex:segment]; // workaround - see http://ootips.org/yonat/workaround-for-bug-in-nsindexset-shiftindexesstartingatindex/
     [newSelectedIndexes shiftIndexesStartingAtIndex:segment by:-1];
 
     // remove the segment
