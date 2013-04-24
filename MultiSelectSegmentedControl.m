@@ -32,7 +32,6 @@
 
 - (void)selectAllSegments:(BOOL)select
 {
-    self.selectedSegmentIndexes = nil;
     self.selectedSegmentIndexes = select ? [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.numberOfSegments)] : [NSIndexSet indexSet];
 }
 
@@ -51,10 +50,12 @@
 
 - (void)selectSegmentsOfSelectedIndexes
 {
-    super.selectedSegmentIndex = -1; // workararound to allow taps on any segment
+    super.selectedSegmentIndex = UISegmentedControlNoSegment; // to allow taps on any segment
     for (NSUInteger i = 0; i < self.numberOfSegments; ++i) {
-        [[self.sortedSegments objectAtIndex:i] setSelected:[self.selectedIndexes containsIndex:i]];
+        [self.sortedSegments[i] setSelected:[self.selectedIndexes containsIndex:i]];
     }
+    // TODO: bug = deselect all, when the last tapped segment has a selected segment on its right - right edge of the last tapped segment stays selected
+    // in fact, deselecting a single segment that has a selected segment on its right - causes the right segment to widen left
 }
 
 - (void)valueChanged
@@ -114,12 +115,13 @@
 
 - (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
-    self.selectedSegmentIndexes = [NSIndexSet indexSetWithIndex:selectedSegmentIndex];
+    self.selectedSegmentIndexes = selectedSegmentIndex == UISegmentedControlNoSegment ? [NSIndexSet indexSet] : [NSIndexSet indexSetWithIndex:selectedSegmentIndex];
 }
 
 - (NSInteger)selectedSegmentIndex
 {
-    return [self.selectedIndexes firstIndex];
+    NSUInteger firstSelectedIndex = [self.selectedIndexes firstIndex];
+    return NSNotFound == firstSelectedIndex ? UISegmentedControlNoSegment : firstSelectedIndex;
 }
 
 - (void)onInsertSegmentAtIndex:(NSUInteger)segment
