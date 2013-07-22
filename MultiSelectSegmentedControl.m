@@ -124,6 +124,9 @@
 
 - (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex
 {
+    if (nil == self.selectedIndexes) { // inside [super init*]
+        [super setSelectedSegmentIndex:selectedSegmentIndex];
+    }
     self.selectedSegmentIndexes = selectedSegmentIndex == UISegmentedControlNoSegment ? [NSIndexSet indexSet] : [NSIndexSet indexSetWithIndex:selectedSegmentIndex];
 }
 
