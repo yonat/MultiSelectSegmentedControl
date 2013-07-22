@@ -6,7 +6,9 @@
 
 #import "MultiSelectSegmentedControl.h"
 
-@interface MultiSelectSegmentedControl ()
+@interface MultiSelectSegmentedControl () {
+    BOOL hasBeenTapped;
+}
 @property (nonatomic, strong) NSMutableArray *sortedSegments;
 @property (nonatomic, strong) NSMutableIndexSet *selectedIndexes;
 @end
@@ -25,9 +27,11 @@
     NSIndexSet *validIndexes = [selectedSegmentIndexes indexesPassingTest:^BOOL(NSUInteger idx, BOOL *stop) {
         return idx < self.numberOfSegments;
     }];
-    self.selectedIndexes = nil;
+    NSMutableIndexSet* oldSet = self.selectedIndexes;
     self.selectedIndexes = [[NSMutableIndexSet alloc] initWithIndexSet:validIndexes];
-    [self selectSegmentsOfSelectedIndexes];
+    if (nil != oldSet) { // not inside [super init*]
+        [self selectSegmentsOfSelectedIndexes];
+    }
 }
 
 - (void)selectAllSegments:(BOOL)select
@@ -60,6 +64,10 @@
 
 - (void)valueChanged
 {
+    if (!hasBeenTapped) {
+        [self initSortedSegmentsArray];
+        hasBeenTapped = YES;
+    }
     NSUInteger tappedSegementIndex = super.selectedSegmentIndex;
     if ([self.selectedIndexes containsIndex:tappedSegementIndex]) {
         [self.selectedIndexes removeIndex:tappedSegementIndex];
@@ -74,6 +82,7 @@
 
 - (void)onInit
 {
+    hasBeenTapped = NO;
     [self addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
     self.selectedIndexes = [NSMutableIndexSet indexSet];
 }
