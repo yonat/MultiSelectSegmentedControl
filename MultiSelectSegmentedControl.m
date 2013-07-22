@@ -27,11 +27,8 @@
     NSIndexSet *validIndexes = [selectedSegmentIndexes indexesPassingTest:^BOOL(NSUInteger idx, BOOL *stop) {
         return idx < self.numberOfSegments;
     }];
-    NSMutableIndexSet* oldSet = self.selectedIndexes;
     self.selectedIndexes = [[NSMutableIndexSet alloc] initWithIndexSet:validIndexes];
-    if (nil != oldSet) { // not inside [super init*]
-        [self selectSegmentsOfSelectedIndexes];
-    }
+    [self selectSegmentsOfSelectedIndexes];
 }
 
 - (void)selectAllSegments:(BOOL)select

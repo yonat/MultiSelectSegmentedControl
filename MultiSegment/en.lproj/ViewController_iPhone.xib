@@ -81,7 +81,6 @@
 						<string key="NSFrame">{{150, 213}, {150, 44}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -218,7 +217,7 @@
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBNumberOfSegments">4</int>
-						<int key="IBSelectedSegmentIndex">0</int>
+						<int key="IBSelectedSegmentIndex">3</int>
 						<array key="IBSegmentTitles">
 							<string>Zero</string>
 							<string>One</string>
@@ -262,7 +261,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBSegmentControlStyle">2</int>
 						<int key="IBNumberOfSegments">7</int>
-						<int key="IBSelectedSegmentIndex">0</int>
 						<array key="IBSegmentTitles">
 							<string>Mon</string>
 							<string>Tue</string>
@@ -1252,7 +1250,7 @@
 				<string key="72.CustomClassName">MultiSelectSegmentedControl</string>
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<boolean value="NO" key="72.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
-				<integer value="6" key="72.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
+				<integer value="0" key="72.IUISegmentedControlInspectorSelectedSegmentMetadataKey"/>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="76.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -1298,7 +1296,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="daysControl">MultiSelectSegmentedControl</string>
 						<string key="indexField">UITextField</string>
-						<string key="multiSelectControl">UISegmentedControl</string>
+						<string key="multiSelectControl">MultiSelectSegmentedControl</string>
 						<string key="titleField">UITextField</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -1312,7 +1310,7 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="multiSelectControl">
 							<string key="name">multiSelectControl</string>
-							<string key="candidateClassName">UISegmentedControl</string>
+							<string key="candidateClassName">MultiSelectSegmentedControl</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="titleField">
 							<string key="name">titleField</string>
