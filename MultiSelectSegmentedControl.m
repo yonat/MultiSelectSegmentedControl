@@ -7,7 +7,7 @@
 #import "MultiSelectSegmentedControl.h"
 
 @interface MultiSelectSegmentedControl () {
-    BOOL hasBeenTapped;
+    BOOL hasBeenDrawn;
 }
 @property (nonatomic, strong) NSMutableArray *sortedSegments;
 @property (nonatomic, strong) NSMutableIndexSet *selectedIndexes;
@@ -61,10 +61,6 @@
 
 - (void)valueChanged
 {
-    if (!hasBeenTapped) {
-        [self initSortedSegmentsArray];
-        hasBeenTapped = YES;
-    }
     NSUInteger tappedSegementIndex = super.selectedSegmentIndex;
     if ([self.selectedIndexes containsIndex:tappedSegementIndex]) {
         [self.selectedIndexes removeIndex:tappedSegementIndex];
@@ -79,7 +75,7 @@
 
 - (void)onInit
 {
-    hasBeenTapped = NO;
+    hasBeenDrawn = NO;
     [self addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
     self.selectedIndexes = [NSMutableIndexSet indexSet];
 }
@@ -93,26 +89,26 @@
     return self;
 }
 
-- (id)initWithItems:(NSArray *)items
-{
-    self = [super initWithItems:items];
-    if (self) {
-        [self initSortedSegmentsArray];
-    }
-    return self;
-}
-
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self onInit];
-        [self initSortedSegmentsArray];
     }
     return self;
 }
 
 #pragma mark - Overrides
+
+- (void)drawRect:(CGRect)rect
+{
+    if (!hasBeenDrawn) {
+        [self initSortedSegmentsArray];
+        hasBeenDrawn = YES;
+        [self selectSegmentsOfSelectedIndexes];
+    }
+    [super drawRect:rect];
+}
 
 - (void)setMomentary:(BOOL)momentary
 {
