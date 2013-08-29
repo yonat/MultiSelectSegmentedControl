@@ -64,9 +64,15 @@
     NSUInteger tappedSegementIndex = super.selectedSegmentIndex;
     if ([self.selectedIndexes containsIndex:tappedSegementIndex]) {
         [self.selectedIndexes removeIndex:tappedSegementIndex];
+        if (self.delegate) {
+            [self.delegate multiSelect:self didChangeValue:NO atIndex:tappedSegementIndex];
+        }
     }
     else {
         [self.selectedIndexes addIndex:tappedSegementIndex];
+        if (self.delegate) {
+            [self.delegate multiSelect:self didChangeValue:YES atIndex:tappedSegementIndex];
+        }
     }
     [self selectSegmentsOfSelectedIndexes];
 }
