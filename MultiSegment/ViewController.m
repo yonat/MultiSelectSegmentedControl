@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "MultiSelectSegmentedControl.h"
 
-@interface ViewController ()
+@interface ViewController () <MultiSelectSegmentedControlDelegate>
 @property (strong, nonatomic) IBOutlet MultiSelectSegmentedControl *daysControl;
 @property (strong, nonatomic) IBOutlet UITextField *indexField;
 @property (strong, nonatomic) IBOutlet UITextField *titleField;
@@ -17,6 +17,18 @@
 @end
 
 @implementation ViewController
+
+-(void)setDaysControl:(MultiSelectSegmentedControl *)daysControl{
+    _daysControl = daysControl;
+    self.daysControl.tag = 1;
+    self.daysControl.delegate = self;
+}
+
+-(void)setMultiSelectControl:(MultiSelectSegmentedControl *)multiSelectControl{
+    _multiSelectControl = multiSelectControl;
+    self.multiSelectControl.tag = 2;
+    self.multiSelectControl.delegate = self;
+}
 
 - (IBAction)addSegment {
     NSUInteger index = [self.indexField.text intValue];
@@ -36,5 +48,13 @@
 - (IBAction)selectNone {
     [self.multiSelectControl selectAllSegments:NO];
 }
+-(void)multiSelect:(MultiSelectSegmentedControl *)multiSelecSegmendedControl didChangeValue:(BOOL)value atIndex:(NSUInteger)index{
+    if (value) {
+        NSLog(@"multiSelect with tag %i selected button at index: %i", multiSelecSegmendedControl.tag, index);
+    } else {
+        NSLog(@"multiSelect with tag %i deselected button at index: %i", multiSelecSegmendedControl.tag, index);
+    }
+}
+
 
 @end
