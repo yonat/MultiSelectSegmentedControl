@@ -12,6 +12,8 @@ Drag a `UISegmentedControl` into your view in Interface Builder.
 
 Set its class to `MultiSelectSegmentedControl`.
 
+Set an outlet for it, perhaps calling it something create such as `myMultiSeg`.
+
 Make sure your ViewController conforms to the delegate protocol:
 ``` objc
 @interface MyViewController : UIViewController <MultiSelectSegmentedControlDelegate
