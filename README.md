@@ -5,3 +5,12 @@
 A subclass of UISegmentedControl that supports selection multiple segments.
 
 No need for images - works with the builtin styles of UISegmentedControl.
+
+**Usage**
+
+Drag a `UISegmentedControl` into your view in Interface Builder.
+Set its class to `MultiSelectSegmentedControl`.
+Make sure your ViewController conforms to the delegate protocol:
+	`@interface MyViewController : UIViewController <MultiSelectSegmentedControlDelegate>`
+Set the delegate, perhaps in your `viewDidLoad` method:
+	`myMultiSeg.delegate = self;
