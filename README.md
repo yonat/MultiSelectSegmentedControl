@@ -9,17 +9,20 @@ No need for images - works with the builtin styles of UISegmentedControl.
 **Usage**
 
 Drag a `UISegmentedControl` into your view in Interface Builder.
+
 Set its class to `MultiSelectSegmentedControl`.
+
 Make sure your ViewController conforms to the delegate protocol:
-	`@interface MyViewController : UIViewController <MultiSelectSegmentedControlDelegate>`
+    @interface MyViewController : UIViewController <MultiSelectSegmentedControlDelegate>
+	
 Set the delegate, perhaps in your `viewDidLoad` method:
-	`myMultiSeg.delegate = self;
+    myMultiSeg.delegate = self;
 
 Set the selected segments:
-`myMultiSeg.selectedSegmentIndexes = [NSIndexSet indexSetWithIndex:1];`
+    myMultiSeg.selectedSegmentIndexes = [NSIndexSet indexSetWithIndex:1];
 
 Get the selected segment indices:
-`NSIndexSet *selectedIndices = myMultiSeg.selectedSegmentIndexes;`
+    NSIndexSet *selectedIndices = myMultiSeg.selectedSegmentIndexes;
 
 Get the selected segment titles:
-`NSLog(@"These items are selected: %@", [myMultiSeg.selectedSegmentTitles componentsJoinedByString:@","]);`
+    NSLog(@"These items are selected: %@", [myMultiSeg.selectedSegmentTitles componentsJoinedByString:@","]);
