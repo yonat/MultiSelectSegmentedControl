@@ -14,3 +14,12 @@ Make sure your ViewController conforms to the delegate protocol:
 	`@interface MyViewController : UIViewController <MultiSelectSegmentedControlDelegate>`
 Set the delegate, perhaps in your `viewDidLoad` method:
 	`myMultiSeg.delegate = self;
+
+Set the selected segments:
+`myMultiSeg.selectedSegmentIndexes = [NSIndexSet indexSetWithIndex:1];`
+
+Get the selected segment indices:
+`NSIndexSet *selectedIndices = myMultiSeg.selectedSegmentIndexes;`
+
+Get the selected segment titles:
+`NSLog(@"These items are selected: %@", [myMultiSeg.selectedSegmentTitles componentsJoinedByString:@","]);`
