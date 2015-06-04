@@ -44,13 +44,13 @@ You are notified of changes through the following method:
 -(void)multiSelect:(MultiSelectSegmentedControl *)multiSelectSegmendedControl didChangeValue:(BOOL)selected atIndex:(NSUInteger)index {
 
 	if (selected) {
-		//NSLog(@"multiSelect with tag %i selected button at index: %i", multiSelectSegmendedControl.tag, index);
+		NSLog(@"multiSelect with tag %i selected button at index: %i", multiSelectSegmendedControl.tag, index);
 	} else {
-		//NSLog(@"multiSelect with tag %i deselected button at index: %i", multiSelectSegmendedControl.tag, index);
+		NSLog(@"multiSelect with tag %i deselected button at index: %i", multiSelectSegmendedControl.tag, index);
 	}
 	
 	
-	DLog(@"selected: '%@'", [[self.damage_D selectedSegmentTitles] componentsJoinedByString:@","]);
+	NSLog(@"selected: '%@'", [multiSelectSegmendedControl.selectedSegmentTitles componentsJoinedByString:@","]);
 	
 }
 ```
