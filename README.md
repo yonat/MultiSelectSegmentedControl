@@ -41,16 +41,16 @@ myMultiSeg.delegate = self;
 
 You are notified of changes through the following method:
 ``` objc
--(void)multiSelect:(MultiSelectSegmentedControl *)multiSelectSegmendedControl didChangeValue:(BOOL)selected atIndex:(NSUInteger)index {
+-(void)multiSelect:(MultiSelectSegmentedControl *)multiSelectSegmentedControl didChangeValue:(BOOL)selected atIndex:(NSUInteger)index {
 
 	if (selected) {
-		NSLog(@"multiSelect with tag %i selected button at index: %i", multiSelectSegmendedControl.tag, index);
+		NSLog(@"multiSelect with tag %i selected button at index: %i", multiSelectSegmentedControl.tag, index);
 	} else {
-		NSLog(@"multiSelect with tag %i deselected button at index: %i", multiSelectSegmendedControl.tag, index);
+		NSLog(@"multiSelect with tag %i deselected button at index: %i", multiSelectSegmentedControl.tag, index);
 	}
 	
 	
-	NSLog(@"selected: '%@'", [multiSelectSegmendedControl.selectedSegmentTitles componentsJoinedByString:@","]);
+	NSLog(@"selected: '%@'", [multiSelectSegmentedControl.selectedSegmentTitles componentsJoinedByString:@","]);
 	
 }
 ```
