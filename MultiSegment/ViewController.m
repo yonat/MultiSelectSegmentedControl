@@ -18,6 +18,16 @@
 
 @implementation ViewController
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    
+    [self.daysControl makeSeparatorTintColor];
+    self.daysControl.selectedSegmentIndexes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(1, 3)];
+    
+    [self.multiSelectControl makeSeparatorTintColor];
+    [self.multiSelectControl selectAllSegments:YES];
+}
+
 -(void)setDaysControl:(MultiSelectSegmentedControl *)daysControl{
     _daysControl = daysControl;
     self.daysControl.tag = 1;

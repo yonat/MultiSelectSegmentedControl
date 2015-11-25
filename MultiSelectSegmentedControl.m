@@ -6,9 +6,7 @@
 
 #import "MultiSelectSegmentedControl.h"
 
-@interface MultiSelectSegmentedControl () {
-    BOOL hasBeenDrawn;
-}
+@interface MultiSelectSegmentedControl ()
 @property (nonatomic, strong) NSMutableArray *sortedSegments;
 @property (nonatomic, strong) NSMutableIndexSet *selectedIndexes;
 @end
@@ -28,6 +26,7 @@
         return idx < self.numberOfSegments;
     }];
     self.selectedIndexes = [[NSMutableIndexSet alloc] initWithIndexSet:validIndexes];
+    [self initSortedSegmentsArray];
     [self selectSegmentsOfSelectedIndexes];
 }
 
@@ -48,9 +47,17 @@
 	}];
 	
 	return [NSArray arrayWithArray:titleArray];
-	
 }
 
+- (void)makeSeparatorTintColor{
+    UIImage *clearColoredLineImage = [self lineImageWithBodyColor:[UIColor clearColor] bodyHeight:self.frame.size.height - 2 endsColor:self.tintColor endsHeight:1];
+    UIImage *tintColoredLineImage = [self lineImageWithBodyColor:self.tintColor bodyHeight:self.frame.size.height - 2 endsColor:self.tintColor endsHeight:1];
+    
+    [self setDividerImage:tintColoredLineImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:tintColoredLineImage forLeftSegmentState:UIControlStateNormal rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:tintColoredLineImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setDividerImage:clearColoredLineImage forLeftSegmentState:UIControlStateSelected rightSegmentState:UIControlStateSelected barMetrics:UIBarMetricsDefault];
+}
 
 #pragma mark - Internals
 
@@ -97,7 +104,6 @@
 
 - (void)onInit
 {
-    hasBeenDrawn = NO;
     [self addTarget:self action:@selector(valueChanged) forControlEvents:UIControlEventValueChanged];
     self.selectedIndexes = [NSMutableIndexSet indexSet];
 }
@@ -122,16 +128,6 @@
 
 #pragma mark - Overrides
 
-- (void)drawRect:(CGRect)rect
-{
-    if (!hasBeenDrawn) {
-        [self initSortedSegmentsArray];
-        hasBeenDrawn = YES;
-        [self selectSegmentsOfSelectedIndexes];
-    }
-    [super drawRect:rect];
-}
-
 - (void)setMomentary:(BOOL)momentary
 {
     // won't work with momentary selection
@@ -155,6 +151,7 @@
 {
     [self.selectedIndexes shiftIndexesStartingAtIndex:segment by:1];
     [self initSortedSegmentsArray];
+    [self selectSegmentsOfSelectedIndexes];
 }
 
 - (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)segment animated:(BOOL)animated
@@ -203,4 +200,17 @@
     self.sortedSegments = nil;
 }
 
+//generate image for vertical separator，whose ends color is endsColor and body color is bodyColor.
+-(UIImage *)lineImageWithBodyColor:(UIColor *)bodyColor bodyHeight:(CGFloat)bodyHeight endsColor:(UIColor *)endsColor endsHeight:(CGFloat)endsHeight{
+    const CGFloat width = 1;
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(width, bodyHeight + 2 * endsHeight), NO, [UIScreen mainScreen].scale);
+    [endsColor set];
+    UIRectFill(CGRectMake(0, 0, width, endsHeight));
+    UIRectFill(CGRectMake(0, endsHeight + bodyHeight, width, endsHeight));
+    [bodyColor set];
+    UIRectFill(CGRectMake(0, endsHeight, width, bodyHeight));
+    UIImage *lineImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return lineImage;
+}
 @end

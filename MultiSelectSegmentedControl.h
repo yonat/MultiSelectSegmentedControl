@@ -24,5 +24,5 @@
 @property (nonatomic, readonly) NSArray *selectedSegmentTitles;
 
 - (void)selectAllSegments:(BOOL)select; // pass NO to deselect all
-
+- (void)makeSeparatorTintColor; //make the color of separator line betweens segments inverse to background.
 @end
