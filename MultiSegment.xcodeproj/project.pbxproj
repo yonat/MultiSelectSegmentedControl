@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50E6101D1C05DDA40082510C /* screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = 50E6101C1C05DDA40082510C /* screenshot.png */; };
 		DC72F6F4172167E9007E5CC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC72F6F3172167E9007E5CC6 /* UIKit.framework */; };
 		DC72F6F6172167E9007E5CC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC72F6F5172167E9007E5CC6 /* Foundation.framework */; };
 		DC72F6F8172167E9007E5CC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC72F6F7172167E9007E5CC6 /* CoreGraphics.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50E6101C1C05DDA40082510C /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		DC72F6F0172167E9007E5CC6 /* MultiSegment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSegment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC72F6F3172167E9007E5CC6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC72F6F5172167E9007E5CC6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +106,7 @@
 		DC72F6FA172167E9007E5CC6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				50E6101C1C05DDA40082510C /* screenshot.png */,
 				DC72F6FB172167E9007E5CC6 /* MultiSegment-Info.plist */,
 				DC72F6FC172167E9007E5CC6 /* InfoPlist.strings */,
 				DC72F6FF172167E9007E5CC6 /* main.m */,
@@ -171,6 +174,7 @@
 				DC72F708172167E9007E5CC6 /* Default@2x.png in Resources */,
 				DC72F70A172167E9007E5CC6 /* Default-568h@2x.png in Resources */,
 				DC72F710172167E9007E5CC6 /* ViewController_iPhone.xib in Resources */,
+				50E6101D1C05DDA40082510C /* screenshot.png in Resources */,
 				DC72F713172167E9007E5CC6 /* ViewController_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +322,7 @@
 				DC72F718172167E9007E5CC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
