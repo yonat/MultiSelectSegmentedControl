@@ -1,5 +1,5 @@
 <img src="http://ootips.org/yonat/wp-content/uploads/2013/04/MultiSelectSegmentedControl.png" style="float:right;">
-
+<img src="./MultiSegment/screenshot.png" width="320" >
 **MultiSelectSegmentedControl - multiple selection segmented control**
 
 A subclass of UISegmentedControl that supports selection multiple segments.
