@@ -22,6 +22,7 @@
 @property (nonatomic, assign) NSIndexSet *selectedSegmentIndexes;
 @property (nonatomic, weak) id<MultiSelectSegmentedControlDelegate> delegate;
 @property (nonatomic, readonly) NSArray *selectedSegmentTitles;
+@property (nonatomic, assign) BOOL hideSeparatorBetweenSelectedSegments;
 
 - (void)selectAllSegments:(BOOL)select; // pass NO to deselect all
 

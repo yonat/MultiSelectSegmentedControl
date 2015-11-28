@@ -1,4 +1,4 @@
-<img src="http://ootips.org/yonat/wp-content/uploads/2013/04/MultiSelectSegmentedControl.png" style="float:right;">
+<img src="screenshot.png" style="float:right;">
 
 **MultiSelectSegmentedControl - multiple selection segmented control**
 

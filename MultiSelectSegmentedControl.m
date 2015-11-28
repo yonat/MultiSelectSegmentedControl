@@ -51,6 +51,13 @@
 	
 }
 
+- (void)setHideSeparatorBetweenSelectedSegments:(BOOL)hideSeparatorBetweenSelectedSegments
+{
+    if (hideSeparatorBetweenSelectedSegments == _hideSeparatorBetweenSelectedSegments) return;
+    _hideSeparatorBetweenSelectedSegments = hideSeparatorBetweenSelectedSegments;
+    [self selectSegmentsOfSelectedIndexes];
+}
+
 
 #pragma mark - Internals
 
@@ -68,26 +75,31 @@
 - (void)selectSegmentsOfSelectedIndexes
 {
     super.selectedSegmentIndex = UISegmentedControlNoSegment; // to allow taps on any segment
+    BOOL isPrevSelected = NO;
     for (NSUInteger i = 0; i < self.numberOfSegments; ++i) {
-        [self.sortedSegments[i] setSelected:[self.selectedIndexes containsIndex:i]];
+        BOOL isSelected = [self.selectedIndexes containsIndex:i];
+        [self.sortedSegments[i] setSelected:isSelected];
+        if (i > 0) { // divide selected segments in flat UI by hiding builtin divider
+            NSNumber *showBuiltinDivider = (isSelected && isPrevSelected && !self.hideSeparatorBetweenSelectedSegments) ? @0 : @1;
+            [self.sortedSegments[i-1] setValue:showBuiltinDivider forKey:@"showDivider"];
+        }
+        isPrevSelected = isSelected;
     }
-    // TODO: bug = deselect all, when the last tapped segment has a selected segment on its right - right edge of the last tapped segment stays selected
-    // in fact, deselecting a single segment that has a selected segment on its right - causes the right segment to widen left
 }
 
 - (void)valueChanged
 {
-    NSUInteger tappedSegementIndex = super.selectedSegmentIndex;
-    if ([self.selectedIndexes containsIndex:tappedSegementIndex]) {
-        [self.selectedIndexes removeIndex:tappedSegementIndex];
+    NSUInteger tappedSegmentIndex = super.selectedSegmentIndex;
+    if ([self.selectedIndexes containsIndex:tappedSegmentIndex]) {
+        [self.selectedIndexes removeIndex:tappedSegmentIndex];
         if (self.delegate) {
-            [self.delegate multiSelect:self didChangeValue:NO atIndex:tappedSegementIndex];
+            [self.delegate multiSelect:self didChangeValue:NO atIndex:tappedSegmentIndex];
         }
     }
     else {
-        [self.selectedIndexes addIndex:tappedSegementIndex];
+        [self.selectedIndexes addIndex:tappedSegmentIndex];
         if (self.delegate) {
-            [self.delegate multiSelect:self didChangeValue:YES atIndex:tappedSegementIndex];
+            [self.delegate multiSelect:self didChangeValue:YES atIndex:tappedSegmentIndex];
         }
     }
     [self selectSegmentsOfSelectedIndexes];
@@ -183,7 +195,7 @@
 
     // remove the segment
     super.selectedSegmentIndex = segment; // necessary to avoid NSRange exception
-    [super removeSegmentAtIndex:segment animated:animated]; // desroys self.selectedIndexes
+    [super removeSegmentAtIndex:segment animated:animated]; // destroys self.selectedIndexes
 
     // restore multiple selection after animation ends
     self.selectedIndexes = newSelectedIndexes;
