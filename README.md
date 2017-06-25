@@ -1,56 +1,115 @@
+# MultiSelectSegmentedControl
+
+Multiple selection segmented control.
+
+[![Build Status][travis-image]][travis-url]
+[![License][license-image]][license-url]
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/MultiSelectSegmentedControl.svg)](https://img.shields.io/cocoapods/v/MultiSelectSegmentedControl.svg)
+[![Platform](https://img.shields.io/cocoapods/p/MultiSelectSegmentedControl.svg?style=flat)](http://cocoapods.org/pods/MultiSelectSegmentedControl)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 <img src="screenshot.png" style="float:right;">
 
-**MultiSelectSegmentedControl - multiple selection segmented control**
-
-A subclass of UISegmentedControl that supports selection multiple segments.
+A subclass of `UISegmentedControl` that supports selecting multiple segments.
 
 No need for images - works with the builtin styles of UISegmentedControl.
 
-**Usage**
+## Features
 
-Drag a `UISegmentedControl` into your view in Interface Builder.
+- [x] Standard iOS look and feel.
+- [x] Use from either storyboard or code.
 
-Set its class to `MultiSelectSegmentedControl`.
+## Requirements
 
-Set an outlet for it, perhaps calling it something creative such as `myMultiSeg`.
+- iOS 8.0+
+- Xcode 7.3
 
-Set the selected segments:
+## Installation
+
+#### CocoaPods
+You can use [CocoaPods](http://cocoapods.org/) to install `YourLibrary` by adding it to your `Podfile`:
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+pod 'MultiSelectSegmentedControl'
+```
+
+To get the full benefits import `YourLibrary` wherever you import UIKit
+
+``` swift
+import UIKit
+import MultiSelectSegmentedControl
+```
+
+## Usage
+
+### Creating a MultiSelectSegmentedControl
+
+In Interface Builder:
+1. Drag a `UISegmentedControl` into your storyboard.
+2. Set its class to `MultiSelectSegmentedControl`.
+3. Set an outlet for it, e.g., `myMultiSeg`.
+
+In code:
+``` objc
+self.myMultiSeg = [[MultiSelectSegmentedControl alloc] init];
+```
+
+### Setting selected segments
+
 ``` objc
 myMultiSeg.selectedSegmentIndexes = [NSIndexSet indexSetWithIndex:1];
 ```
 
-Get the selected segment indices:
+### Getting selected segments
+
 ``` objc
 NSIndexSet *selectedIndices = myMultiSeg.selectedSegmentIndexes;
 ```
 
-Get the selected segment titles:
+Or to get the titles:
+
 ``` objc
-NSLog(@"These items are selected: %@", [myMultiSeg.selectedSegmentTitles componentsJoinedByString:@","]);
+NSArray *titles = myMultiSeg.selectedSegmentTitles;
 ```
 
-If you want to be notified of changes to the control's value, make sure your ViewController conforms to the delegate protocol:
+### Handling user selection changes
+
+To be notified of changes to the control's value, make sure your ViewController conforms to the delegate protocol:
+
 ``` objc
 @interface MyViewController : UIViewController <MultiSelectSegmentedControlDelegate>
 ```
 
 ...and set the delegate, perhaps in your `viewDidLoad` method:
+
 ``` objc
 myMultiSeg.delegate = self;
 ```
+Then override the delegate protocol method:
 
-You are notified of changes through the following method:
 ``` objc
 -(void)multiSelect:(MultiSelectSegmentedControl *)multiSelectSegmentedControl didChangeValue:(BOOL)selected atIndex:(NSUInteger)index {
-
 	if (selected) {
-		NSLog(@"multiSelect with tag %i selected button at index: %i", multiSelectSegmentedControl.tag, index);
+		NSLog(@"Selected segment %u", index);
 	} else {
-		NSLog(@"multiSelect with tag %i deselected button at index: %i", multiSelectSegmentedControl.tag, index);
+		NSLog(@"Deselected segment %u", index);
 	}
-	
-	
-	NSLog(@"selected: '%@'", [multiSelectSegmentedControl.selectedSegmentTitles componentsJoinedByString:@","]);
-	
 }
 ```
+
+## Meta
+
+[@yonatsharon](https://twitter.com/yonatsharon)
+
+[https://github.com/yonat/MultiSelectSegmentedControl](https://github.com/yonat/MultiSelectSegmentedControl)
+
+[swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
+[swift-url]: https://swift.org/
+[license-image]: https://img.shields.io/badge/License-MIT-blue.svg
+[license-url]: LICENSE.txt
+[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[codebeat-image]: https://codebeat.co/badges/c19b47ea-2f9d-45df-8458-b2d952fe9dad
+[codebeat-url]: https://codebeat.co/projects/github-com-vsouza-awesomeios-com
