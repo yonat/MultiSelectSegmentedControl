@@ -36,9 +36,9 @@
     self.selectedSegmentIndexes = select ? [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, self.numberOfSegments)] : [NSIndexSet indexSet];
 }
 
-- (NSArray*)selectedSegmentTitles {
-	
-	__block NSMutableArray *titleArray = [[NSMutableArray alloc] initWithCapacity:[self.selectedSegmentIndexes count]];
+- (NSArray<NSString *> *)selectedSegmentTitles
+{
+	__block NSMutableArray<NSString*> *titleArray = [[NSMutableArray alloc] initWithCapacity:[self.selectedSegmentIndexes count]];
 	
 	[self.selectedSegmentIndexes enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
 		//NSLog(@"segment index is selected: %d; text: %@", idx, [self titleForSegmentAtIndex:idx]);
@@ -47,7 +47,7 @@
 		
 	}];
 	
-	return [NSArray arrayWithArray:titleArray];
+	return [titleArray copy];
 	
 }
 
