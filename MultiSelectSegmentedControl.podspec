@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MultiSelectSegmentedControl"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "Multiple-Selection Segmented Control"
 
   s.description  = <<-DESC
@@ -20,7 +20,7 @@ No need for images - works with the builtin styles of UISegmentedControl.
 
   s.platform     = :ios, "5.0"
 
-  s.source       = { :git => "https://github.com/yonat/MultiSelectSegmentedControl.git", :tag => "1.1.1" }
+  s.source       = { :git => "https://github.com/yonat/MultiSelectSegmentedControl.git", :tag => "1.1.2" }
 
   s.source_files  = "MultiSelectSegmentedControl.{h,m}"
 
