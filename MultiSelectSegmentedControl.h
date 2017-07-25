@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy, null_resettable) NSIndexSet *selectedSegmentIndexes;
 @property (nonatomic, weak, nullable) id<MultiSelectSegmentedControlDelegate> delegate;
-@property (nonatomic, readonly) NSArray *selectedSegmentTitles;
+@property (nonatomic, readonly) NSArray<NSString*> *selectedSegmentTitles;
 @property (nonatomic, assign) IBInspectable BOOL hideSeparatorBetweenSelectedSegments;
 
 - (void)selectAllSegments:(BOOL)select; // pass NO to deselect all
