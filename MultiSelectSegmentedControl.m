@@ -9,7 +9,6 @@
 @interface MultiSelectSegmentedControl () {
     BOOL hasBeenDrawn;
 }
-@property (nonatomic, strong) NSMutableArray *sortedSegments;
 @property (nonatomic, strong) NSMutableIndexSet *selectedIndexes;
 @end
 
@@ -61,15 +60,9 @@
 
 #pragma mark - Internals
 
-- (void)initSortedSegmentsArray
+- (NSArray *)sortedSegments
 {
-    self.sortedSegments = nil;
-    self.sortedSegments = [NSMutableArray arrayWithArray:self.subviews];
-    [self.sortedSegments sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        CGFloat x1 = ((UIView *)obj1).frame.origin.x;
-        CGFloat x2 = ((UIView *)obj2).frame.origin.x;
-        return (x1 > x2) - (x1 < x2);
-    }];
+    return [self valueForKey:@"_segments"];
 }
 
 - (void)selectSegmentsOfSelectedIndexes
@@ -137,7 +130,6 @@
 - (void)drawRect:(CGRect)rect
 {
     if (!hasBeenDrawn) {
-        [self initSortedSegmentsArray];
         hasBeenDrawn = YES;
         [self selectSegmentsOfSelectedIndexes];
     }
@@ -166,7 +158,6 @@
 - (void)onInsertSegmentAtIndex:(NSUInteger)segment
 {
     [self.selectedIndexes shiftIndexesStartingAtIndex:segment by:1];
-    [self initSortedSegmentsArray];
 }
 
 - (void)insertSegmentWithTitle:(NSString *)title atIndex:(NSUInteger)segment animated:(BOOL)animated
@@ -202,7 +193,6 @@
     double delayInSeconds = animated? 0.45 : 0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self initSortedSegmentsArray];
         [self selectSegmentsOfSelectedIndexes];
     });
 }
@@ -212,7 +202,6 @@
     super.selectedSegmentIndex = 0;
     [super removeAllSegments];
     [self.selectedIndexes removeAllIndexes];
-    self.sortedSegments = nil;
 }
 
 @end
