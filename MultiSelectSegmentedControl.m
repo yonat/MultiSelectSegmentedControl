@@ -166,6 +166,8 @@
 - (void)onInsertSegmentAtIndex:(NSUInteger)segment
 {
     [self.selectedIndexes shiftIndexesStartingAtIndex:segment by:1];
+    [self setNeedsLayout]; // to make sure the new segment gets a valid frame before calculating sortedSegments
+    [self layoutIfNeeded];
     [self initSortedSegmentsArray];
 }
 
