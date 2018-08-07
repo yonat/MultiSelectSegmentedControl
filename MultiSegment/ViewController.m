@@ -50,9 +50,9 @@
 }
 -(void)multiSelect:(MultiSelectSegmentedControl *)multiSelecSegmendedControl didChangeValue:(BOOL)value atIndex:(NSUInteger)index{
     if (value) {
-        NSLog(@"multiSelect with tag %li selected button at index: %lu", (long)multiSelecSegmendedControl.tag, (unsigned long)index);
+        NSLog(@"multiSelect with tag %li selected button at index: %li", multiSelecSegmendedControl.tag, index);
     } else {
-        NSLog(@"multiSelect with tag %li deselected button at index: %lu", (long)multiSelecSegmendedControl.tag, index);
+        NSLog(@"multiSelect with tag %li deselected button at index: %li", multiSelecSegmendedControl.tag, index);
     }
 }
 
