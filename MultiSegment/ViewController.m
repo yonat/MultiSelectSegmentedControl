@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "MultiSelectSegmentedControl.h"
+@import MultiSelectSegmentedControl;
 
 @interface ViewController () <MultiSelectSegmentedControlDelegate>
 @property (strong, nonatomic) IBOutlet MultiSelectSegmentedControl *daysControl;

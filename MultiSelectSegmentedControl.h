@@ -9,7 +9,7 @@
 //  myControl.selectedSegmentIndexes instead of myControl.selectedSegmentIndex
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @class MultiSelectSegmentedControl;
 
