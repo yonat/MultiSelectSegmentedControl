@@ -68,7 +68,15 @@
     [self.sortedSegments sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         CGFloat x1 = ((UIView *)obj1).frame.origin.x;
         CGFloat x2 = ((UIView *)obj2).frame.origin.x;
+      
+        if (@available(iOS 9.0, *)) {
+          if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:self.semanticContentAttribute] == UIUserInterfaceLayoutDirectionRightToLeft) {
+            return (x1 < x2) - (x1 > x2);
+          }
+        }
+      
         return (x1 > x2) - (x1 < x2);
+      
     }];
 }
 
