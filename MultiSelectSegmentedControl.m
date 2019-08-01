@@ -65,6 +65,9 @@
 {
     self.sortedSegments = nil;
     self.sortedSegments = [NSMutableArray arrayWithArray:self.subviews];
+    [self.sortedSegments filterUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        return [NSStringFromClass([evaluatedObject class]) isEqualToString:@"UISegment"];
+    }]];
     [self.sortedSegments sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         CGFloat x1 = ((UIView *)obj1).frame.origin.x;
         CGFloat x2 = ((UIView *)obj2).frame.origin.x;

@@ -22,22 +22,19 @@ No need for images - works with the builtin styles of UISegmentedControl.
 ## Requirements
 
 - iOS 8.0+
-- Xcode 7.3
+- Xcode 7.3+
 
 ## Installation
 
 #### CocoaPods
-You can use [CocoaPods](http://cocoapods.org/) to install `YourLibrary` by adding it to your `Podfile`:
 
 ```ruby
-platform :ios, '8.0'
-use_frameworks!
 pod 'MultiSelectSegmentedControl'
 ```
 
-To get the full benefits import `YourLibrary` wherever you import UIKit
+Then in your code:
 
-``` swift
+```swift
 import UIKit
 import MultiSelectSegmentedControl
 ```
@@ -47,30 +44,31 @@ import MultiSelectSegmentedControl
 ### Creating a MultiSelectSegmentedControl
 
 In Interface Builder:
+
 1. Drag a `UISegmentedControl` into your storyboard.
 2. Set its class to `MultiSelectSegmentedControl`.
-3. Set an outlet for it, e.g., `myMultiSeg`.
 
 In code:
-``` objc
+
+```objc
 self.myMultiSeg = [[MultiSelectSegmentedControl alloc] init];
 ```
 
 ### Setting selected segments
 
-``` objc
+```objc
 myMultiSeg.selectedSegmentIndexes = [NSIndexSet indexSetWithIndex:1];
 ```
 
 ### Getting selected segments
 
-``` objc
+```objc
 NSIndexSet *selectedIndices = myMultiSeg.selectedSegmentIndexes;
 ```
 
 Or to get the titles:
 
-``` objc
+```objc
 NSArray *titles = myMultiSeg.selectedSegmentTitles;
 ```
 
@@ -78,18 +76,19 @@ NSArray *titles = myMultiSeg.selectedSegmentTitles;
 
 To be notified of changes to the control's value, make sure your ViewController conforms to the delegate protocol:
 
-``` objc
+```objc
 @interface MyViewController : UIViewController <MultiSelectSegmentedControlDelegate>
 ```
 
 ...and set the delegate, perhaps in your `viewDidLoad` method:
 
-``` objc
+```objc
 myMultiSeg.delegate = self;
 ```
+
 Then override the delegate protocol method:
 
-``` objc
+```objc
 -(void)multiSelect:(MultiSelectSegmentedControl *)multiSelectSegmentedControl didChangeValue:(BOOL)selected atIndex:(NSUInteger)index {
 	if (selected) {
 		NSLog(@"Selected segment %u", index);
