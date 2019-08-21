@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2019-08-21
+
+### Changed
+- Complete re-write in Swift 5, compatible with iOS 13.
+
+### Added
+- Vertical stacking.
+- Can show text and images together.
+- Configureable border and dividers width.
+- Configurable border corner radius.
+- UIAppearance support.
+
 ## [1.2.1] - 2018-09-24
 
 ### Fixed
@@ -17,7 +29,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.1.3] - 2017-11-14
 
 ### Fixed
-- adding segment programatically and using autolayout caused wrong segment to be selected
+- adding segment programaticly and using autolayout caused wrong segment to be selected
 
 ## [1.1.2] - 2017-07-25
 

@@ -1,6 +1,0 @@
-framework module MultiSelectSegmentedControl {
-    umbrella header "Public.h"
-
-    export *
-    module * { export * }
-}

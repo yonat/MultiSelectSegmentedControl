@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MultiSegmentDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1m-HH-63j" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
+                                <rect key="frame" x="62.5" y="36" width="195.5" height="36.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5A-Y5-Qfg" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
+                                <rect key="frame" x="62.5" y="436.5" width="64.5" height="115.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
+                                        <real key="value" value="32"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxK-Qx-6NQ" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
+                                <rect key="frame" x="62.5" y="88.5" width="195.5" height="36.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVerticalSegmentContents" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0A-RP-fJL" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
+                                <rect key="frame" x="193.5" y="440.5" width="64.5" height="111.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XnL-UF-Von">
+                                <rect key="frame" x="100.5" y="336" width="119.5" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Segment Index:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0x-fQ-oE3">
+                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VfQ-Po-3pf">
+                                        <rect key="frame" x="47" y="28.5" width="25" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dw8-Ed-mbb">
+                                        <rect key="frame" x="44.5" y="66.5" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addSegment" destination="BYZ-38-t0r" eventType="touchUpInside" id="yOy-ok-FkO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRJ-jE-71v">
+                                        <rect key="frame" x="32" y="104.5" width="55" height="30"/>
+                                        <state key="normal" title="Remove"/>
+                                        <connections>
+                                            <action selector="removeSegment" destination="BYZ-38-t0r" eventType="touchUpInside" id="qwi-2c-bq3"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👈" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blS-qe-9hk">
+                                        <rect key="frame" x="33.5" y="142.5" width="52" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="P1m-HH-63j" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7eD-TZ-55e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="K5A-Y5-Qfg" secondAttribute="bottom" constant="16" id="DDH-0b-cop"/>
+                            <constraint firstItem="K5A-Y5-Qfg" firstAttribute="leading" secondItem="DxK-Qx-6NQ" secondAttribute="leading" id="ESW-BJ-i4G"/>
+                            <constraint firstItem="DxK-Qx-6NQ" firstAttribute="top" secondItem="P1m-HH-63j" secondAttribute="bottom" constant="16" id="J4X-9J-XYb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R0A-RP-fJL" secondAttribute="bottom" constant="16" id="U9p-Uq-nG2"/>
+                            <constraint firstItem="DxK-Qx-6NQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="l32-e0-mne"/>
+                            <constraint firstItem="XnL-UF-Von" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tzc-tv-D76"/>
+                            <constraint firstItem="P1m-HH-63j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="u7u-wc-kKu"/>
+                            <constraint firstItem="R0A-RP-fJL" firstAttribute="trailing" secondItem="DxK-Qx-6NQ" secondAttribute="trailing" id="ugH-jm-myn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XnL-UF-Von" secondAttribute="bottom" constant="32" id="y8X-wa-E9G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imagesControl" destination="R0A-RP-fJL" id="HzG-dO-KdW"/>
+                        <outlet property="mixedControl" destination="DxK-Qx-6NQ" id="bhI-Vt-KXf"/>
+                        <outlet property="segmentIndexField" destination="VfQ-Po-3pf" id="cpm-is-2xq"/>
+                        <outlet property="verticalTextControl" destination="K5A-Y5-Qfg" id="v0d-AS-TFU"/>
+                        <outlet property="weekControl" destination="P1m-HH-63j" id="9hH-7X-1Eq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
+        </scene>
+    </scenes>
+</document>

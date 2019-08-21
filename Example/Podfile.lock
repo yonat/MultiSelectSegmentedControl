@@ -1,0 +1,41 @@
+PODS:
+  - MultiSelectSegmentedControl (2.0.0):
+    - SweeterSwift
+  - SweeterSwift (1.0.1)
+  - SwiftFormat/CLI (0.40.10)
+  - SwiftLint (0.34.0)
+  - SwiftQuality (1.0.4):
+    - SwiftFormat/CLI (= 0.40.10)
+    - SwiftLint (= 0.34.0)
+
+DEPENDENCIES:
+  - MultiSelectSegmentedControl (from `..`)
+  - SwiftQuality (from `https://github.com/yonat/SwiftQuality`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SweeterSwift
+    - SwiftFormat
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  MultiSelectSegmentedControl:
+    :path: ".."
+  SwiftQuality:
+    :git: https://github.com/yonat/SwiftQuality
+
+CHECKOUT OPTIONS:
+  SwiftQuality:
+    :commit: aa5167c9e5a63bb0d9adb8ac3a26ed6444077686
+    :git: https://github.com/yonat/SwiftQuality
+
+SPEC CHECKSUMS:
+  MultiSelectSegmentedControl: 3c8062f874f8423abc814fe7142ea82aa778ac80
+  SweeterSwift: d12d3cc90e52a81e0975e69fb05dce46429be647
+  SwiftFormat: d0e2118da5bfccc0158f0b8eff80c476c5acd984
+  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
+  SwiftQuality: b82257ee3bf1193fd2c01681438d71a5e5ae2f9a
+
+PODFILE CHECKSUM: 1362606197c7bf87bd0d6d61e33235f07c4200e5
+
+COCOAPODS: 1.7.5
