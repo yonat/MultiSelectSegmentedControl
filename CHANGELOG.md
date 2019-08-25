@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- accessibility labels
+- dark mode support
+- dynamic type support
+
 ## [2.0.1] - 2019-08-25
 
 ### Added
@@ -32,12 +39,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.2] - 2018-08-11
 
 ### Added
-- Carthange support.
+- Carthage support.
 
 ## [1.1.3] - 2017-11-14
 
 ### Fixed
-- adding segment programaticly and using autolayout caused wrong segment to be selected
+- adding segment programmatically and using autolayout caused wrong segment to be selected
 
 ## [1.1.2] - 2017-07-25
 

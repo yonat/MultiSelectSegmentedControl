@@ -18,9 +18,14 @@ public class MultiSelectSegment: UIView {
             stackView.removeAllArrangedSubviewsCompletely()
             for contentItem in newValue {
                 if let image = contentItem as? UIImage {
-                    stackView.addArrangedSubview(UIImageView(image: image))
+                    let imageView = UIImageView(image: image)
+                    if #available(iOS 11.0, *) {
+                        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+                    }
+                    stackView.addArrangedSubview(imageView)
                 } else {
-                    stackView.addArrangedSubview(UILabel(centeredText: "\(contentItem)"))
+                    accessibilityLabel = "\(contentItem)"
+                    stackView.addArrangedSubview(UILabel(centeredText: accessibilityLabel))
                 }
             }
         }
@@ -29,6 +34,11 @@ public class MultiSelectSegment: UIView {
     public var isSelected: Bool = false {
         didSet {
             updateColors()
+            if isSelected {
+                accessibilityTraits.insert(.selected)
+            } else {
+                accessibilityTraits.remove(.selected)
+            }
         }
     }
 
@@ -65,6 +75,7 @@ public class MultiSelectSegment: UIView {
             } else {
                 stackView.addArrangedSubview(UILabel(centeredText: newValue))
             }
+            accessibilityLabel = newValue
         }
     }
 
@@ -112,11 +123,14 @@ public class MultiSelectSegment: UIView {
         addConstrainedSubview(stackView, constrain: .topMargin, .bottomMargin, .leftMargin, .rightMargin)
         stackView.spacing = layoutMargins.left
         stackView.isUserInteractionEnabled = false
+        isAccessibilityElement = true
+        accessibilityTraits = [.button]
+        accessibilityIdentifier = "MultiSelectSegment"
     }
 
     private func updateColors() {
         backgroundColor = isSelected ? actualTintColor : .clear
-        let foregroundColor: UIColor = isSelected ? .white : actualTintColor
+        let foregroundColor: UIColor = isSelected ? .background : actualTintColor
         for contentView in stackView.arrangedSubviews {
             if let label = contentView as? UILabel {
                 label.textColor = foregroundColor
@@ -132,5 +146,19 @@ extension UILabel {
         self.init()
         text = centeredText
         textAlignment = .center
+        font = .preferredFont(forTextStyle: .body)
+        if #available(iOS 10.0, *) {
+            adjustsFontForContentSizeCategory = true
+        }
+    }
+}
+
+extension UIColor {
+    class var background: UIColor {
+        if #available(iOS 13, *) {
+            return .systemBackground
+        } else {
+            return .white
+        }
     }
 }

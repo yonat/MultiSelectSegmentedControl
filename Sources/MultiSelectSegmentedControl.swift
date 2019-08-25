@@ -263,6 +263,7 @@ import UIKit
         tintColorDidChange()
         borderView.isUserInteractionEnabled = false
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTap)))
+        accessibilityIdentifier = "MultiSelectSegmentedControl"
     }
 
     @objc open func didTap(gesture: UITapGestureRecognizer) {

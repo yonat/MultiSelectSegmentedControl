@@ -83,17 +83,19 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="K5A-Y5-Qfg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5o1-mR-Xmf"/>
                             <constraint firstItem="P1m-HH-63j" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7eD-TZ-55e"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="R0A-RP-fJL" secondAttribute="trailing" constant="20" id="9CO-4P-u8B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="K5A-Y5-Qfg" secondAttribute="bottom" constant="16" id="DDH-0b-cop"/>
-                            <constraint firstItem="K5A-Y5-Qfg" firstAttribute="leading" secondItem="DxK-Qx-6NQ" secondAttribute="leading" id="ESW-BJ-i4G"/>
+                            <constraint firstItem="K5A-Y5-Qfg" firstAttribute="leading" secondItem="DxK-Qx-6NQ" secondAttribute="leading" priority="250" id="ESW-BJ-i4G"/>
                             <constraint firstItem="DxK-Qx-6NQ" firstAttribute="top" secondItem="P1m-HH-63j" secondAttribute="bottom" constant="16" id="J4X-9J-XYb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="R0A-RP-fJL" secondAttribute="bottom" constant="16" id="U9p-Uq-nG2"/>
                             <constraint firstItem="DxK-Qx-6NQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="l32-e0-mne"/>
                             <constraint firstItem="XnL-UF-Von" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tzc-tv-D76"/>
                             <constraint firstItem="P1m-HH-63j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="u7u-wc-kKu"/>
-                            <constraint firstItem="R0A-RP-fJL" firstAttribute="trailing" secondItem="DxK-Qx-6NQ" secondAttribute="trailing" id="ugH-jm-myn"/>
+                            <constraint firstItem="R0A-RP-fJL" firstAttribute="trailing" secondItem="DxK-Qx-6NQ" secondAttribute="trailing" priority="250" id="ugH-jm-myn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="XnL-UF-Von" secondAttribute="bottom" constant="32" id="y8X-wa-E9G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
