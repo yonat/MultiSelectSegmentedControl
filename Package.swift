@@ -5,16 +5,16 @@ import PackageDescription
 let package = Package(
     name: "MultiSelectSegmentedControl",
     platforms: [
-        .iOS(.v9)
+        .iOS(.v9),
     ],
     products: [
-        .library( name: "MultiSelectSegmentedControl", targets: ["MultiSelectSegmentedControl"])
+        .library(name: "MultiSelectSegmentedControl", targets: ["MultiSelectSegmentedControl"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/yonat/SweeterSwift", from: "1.0.2")
+        .package(url: "https://github.com/yonat/SweeterSwift", from: "1.0.2"),
     ],
     targets: [
-        .target(name: "MultiSelectSegmentedControl", dependencies: ["SweeterSwift"], path: "Sources")
+        .target(name: "MultiSelectSegmentedControl", dependencies: ["SweeterSwift"], path: "Sources"),
     ],
     swiftLanguageVersions: [.v5]
 )

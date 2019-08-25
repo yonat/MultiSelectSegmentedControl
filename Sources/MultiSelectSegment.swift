@@ -111,12 +111,11 @@ public class MultiSelectSegment: UIView {
     private func setup() {
         addConstrainedSubview(stackView, constrain: .topMargin, .bottomMargin, .leftMargin, .rightMargin)
         stackView.spacing = layoutMargins.left
-        backgroundColor = .white
         stackView.isUserInteractionEnabled = false
     }
 
     private func updateColors() {
-        backgroundColor = isSelected ? actualTintColor : .white
+        backgroundColor = isSelected ? actualTintColor : .clear
         let foregroundColor: UIColor = isSelected ? .white : actualTintColor
         for contentView in stackView.arrangedSubviews {
             if let label = contentView as? UILabel {

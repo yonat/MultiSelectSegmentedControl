@@ -32,7 +32,7 @@ let multiSelect = MultiSelectSegmentedControl()
 multiSelect.items = ["One", "Two", image, [image2, "Text"], "Last"]
 ```
 
-Images are shown in full color (unlinke `UISegmentedControl`). To make them render in the same `tintColor` as the control, use template mode:
+Images are shown in full color (unlike `UISegmentedControl`). To make them render in the same `tintColor` as the control, use template mode:
 
 ```swift
 multiSelect.items = [image1, image2, image3].map { $0.withRenderingMode(.alwaysTemplate) }
@@ -126,7 +126,8 @@ pod 'MultiSelectSegmentedControl'
 
 - [ ] accessibility
 - [ ] `titleTextAttributes: [UIControl.State: [NSAttributedString.Key : Any]]`
-- [ ] configure unselected segment `backgroundColor`, `layoutMargins`, `stackView.spacing`
+- [ ] foreground color of selected segment should be/appear transparent
+- [ ] configure segment `layoutMargins`, `stackView.spacing`
 
 
 ## Meta

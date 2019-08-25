@@ -229,8 +229,8 @@ import UIKit
     open override func tintColorDidChange() {
         super.tintColorDidChange()
         let newTint = actualTintColor
-        backgroundColor = newTint
         borderView.layer.borderColor = newTint.cgColor
+        dividers.forEach { $0.backgroundColor = newTint }
         segments.forEach { $0.tintColor = tintColor }
     }
 
@@ -294,8 +294,8 @@ import UIKit
 
     private func showDividersBetweenSelectedSegments() {
         for i in 0 ..< dividers.count {
-            let isShown = segments[i].isSelected && segments[i + 1].isSelected
-            dividers[i].alpha = isShown ? 1 : 0
+            let isHidden = segments[i].isSelected && segments[i + 1].isSelected
+            dividers[i].alpha = isHidden ? 0 : 1
         }
     }
 
@@ -303,8 +303,7 @@ import UIKit
         guard index >= 0 && index < segments.count - 1 else { return }
         let segment = segments[index]
         let divider = UIView()
-        divider.backgroundColor = .white
-        divider.alpha = 0
+        divider.backgroundColor = actualTintColor
         dividers.insert(divider, at: index)
         addConstrainedSubview(divider)
         constrainDividerToControl(divider: divider)
