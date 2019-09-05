@@ -23,6 +23,8 @@ UISegmentedControl remake that supports selecting multiple segments, vertical st
 
 Very similar to `UISegmentedControl`, can be used as a drop-in replacement in most cases.
 
+If you use Interface Builder, add a regular `UIView` and then set its class to `MultiSelectSegmentedControl`.
+
 ### Creating Segments
 
 Each segment can contain an image, a text, or both:
