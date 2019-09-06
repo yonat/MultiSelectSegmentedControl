@@ -124,6 +124,14 @@ multiSelect.isVerticalSegmentContents = true
 pod 'MultiSelectSegmentedControl'
 ```
 
+### Swift Package Manager:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/yonat/MultiSelectSegmentedControl", from: "2.0.1")
+]
+```
+
 ## TODO
 
 - [ ] `titleTextAttributes: [UIControl.State: [NSAttributedString.Key : Any]]`
