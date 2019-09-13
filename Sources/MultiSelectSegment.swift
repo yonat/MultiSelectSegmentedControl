@@ -121,6 +121,7 @@ public class MultiSelectSegment: UIView {
 
     private func setup() {
         addConstrainedSubview(stackView, constrain: .topMargin, .bottomMargin, .leftMargin, .rightMargin)
+        layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         stackView.spacing = layoutMargins.left
         stackView.isUserInteractionEnabled = false
         isAccessibilityElement = true
@@ -146,7 +147,7 @@ extension UILabel {
         self.init()
         text = centeredText
         textAlignment = .center
-        font = .preferredFont(forTextStyle: .body)
+        font = .preferredFont(forTextStyle: .footnote)
         if #available(iOS 10.0, *) {
             adjustsFontForContentSizeCategory = true
         }

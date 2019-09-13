@@ -24,7 +24,7 @@
                                 <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
-                                        <real key="value" value="32"/>
+                                        <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -33,13 +33,13 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DxK-Qx-6NQ" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
-                                <rect key="frame" x="62.5" y="68.5" width="195.5" height="36.5"/>
+                                <rect key="frame" x="80" y="62" width="160" height="30"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isVerticalSegmentContents" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0A-RP-fJL" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
-                                <rect key="frame" x="193.5" y="440.5" width="64.5" height="111.5"/>
+                                <rect key="frame" x="186" y="460" width="54" height="92"/>
                                 <color key="tintColor" red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="YES"/>

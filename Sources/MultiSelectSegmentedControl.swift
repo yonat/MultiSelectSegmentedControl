@@ -254,8 +254,10 @@ import UIKit
     var dividers: [UIView] = []
 
     private func setup() {
-        addConstrainedSubview(stackView, constrain: .top, .bottom, .left, .right)
         addConstrainedSubview(borderView, constrain: .top, .bottom, .left, .right)
+        addConstrainedSubview(stackView, constrain: .top, .bottom)
+        constrain(stackView, at: .left, to: borderView, diff: 1)
+        constrain(stackView, at: .right, to: borderView, diff: -1)
         clipsToBounds = true
         stackView.distribution = .fillEqually
         borderWidth = { borderWidth }()

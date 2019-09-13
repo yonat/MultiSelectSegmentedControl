@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - dark mode support
 - dynamic type support
 
+### Fixed
+- use same font size as the old version.
+
 ## [2.0.1] - 2019-08-25
 
 ### Added
