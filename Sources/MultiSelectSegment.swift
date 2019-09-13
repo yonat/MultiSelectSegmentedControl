@@ -125,6 +125,7 @@ public class MultiSelectSegment: UIView {
         layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         stackView.spacing = layoutMargins.left
         stackView.isUserInteractionEnabled = false
+        stackView.alignment = .center
         isAccessibilityElement = true
         accessibilityTraits = [.button]
         accessibilityIdentifier = "MultiSelectSegment"
