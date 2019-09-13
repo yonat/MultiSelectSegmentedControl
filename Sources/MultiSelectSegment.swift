@@ -6,6 +6,7 @@
 //
 
 import SweeterSwift
+import UIKit
 
 public class MultiSelectSegment: UIView {
     public var contents: [Any] {
