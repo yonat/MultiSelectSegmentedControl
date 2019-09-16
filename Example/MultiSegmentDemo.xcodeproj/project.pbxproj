@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		254DA178987356FF81B05EC7 /* Pods_MultiSegmentDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124CC80D929EB2AC471A39CF /* Pods_MultiSegmentDemo.framework */; };
+		DC64D106233067FA00506A50 /* MultiSegmentPickerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC64D105233067FA00506A50 /* MultiSegmentPickerDemo.swift */; };
+		DC64D10D2330E71200506A50 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC64D10C2330E71200506A50 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DC66C796230A6A0E00423E15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66C795230A6A0E00423E15 /* AppDelegate.swift */; };
 		DC66C79A230A6A0E00423E15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66C799230A6A0E00423E15 /* ViewController.swift */; };
 		DC66C79D230A6A0E00423E15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC66C79B230A6A0E00423E15 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 		8C9CE12B574E07BC56C7941F /* Pods-MultiSegmentDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSegmentDemoTests.debug.xcconfig"; path = "Target Support Files/Pods-MultiSegmentDemoTests/Pods-MultiSegmentDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A04184B291BEFAE9763C5D26 /* Pods-MultiSegmentDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSegmentDemo.debug.xcconfig"; path = "Target Support Files/Pods-MultiSegmentDemo/Pods-MultiSegmentDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		BAC30CC2E32344CE4677D5B6 /* Pods-MultiSegmentDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSegmentDemoTests.release.xcconfig"; path = "Target Support Files/Pods-MultiSegmentDemoTests/Pods-MultiSegmentDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		DC64D105233067FA00506A50 /* MultiSegmentPickerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSegmentPickerDemo.swift; sourceTree = "<group>"; };
+		DC64D10C2330E71200506A50 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		DC66C792230A6A0E00423E15 /* MultiSegmentDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSegmentDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC66C795230A6A0E00423E15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC66C799230A6A0E00423E15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC64D10D2330E71200506A50 /* SwiftUI.framework in Frameworks */,
 				254DA178987356FF81B05EC7 /* Pods_MultiSegmentDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +56,7 @@
 		3FB30B05F744CCECC21478A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC64D10C2330E71200506A50 /* SwiftUI.framework */,
 				124CC80D929EB2AC471A39CF /* Pods_MultiSegmentDemo.framework */,
 				3AF52396A93930FBC10727AD /* Pods_MultiSegmentDemoTests.framework */,
 				89B7D9B2A01A1005AF214CCF /* Pods_MultiSegmentDemoUITests.framework */,
@@ -81,8 +87,9 @@
 		DC66C794230A6A0E00423E15 /* MultiSegmentDemo */ = {
 			isa = PBXGroup;
 			children = (
-				DC66C795230A6A0E00423E15 /* AppDelegate.swift */,
 				DC66C799230A6A0E00423E15 /* ViewController.swift */,
+				DC64D105233067FA00506A50 /* MultiSegmentPickerDemo.swift */,
+				DC66C795230A6A0E00423E15 /* AppDelegate.swift */,
 				DC66C79B230A6A0E00423E15 /* Main.storyboard */,
 				DC66C79E230A6A0F00423E15 /* Assets.xcassets */,
 				DC66C7A0230A6A0F00423E15 /* LaunchScreen.storyboard */,
@@ -271,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC66C79A230A6A0E00423E15 /* ViewController.swift in Sources */,
+				DC64D106233067FA00506A50 /* MultiSegmentPickerDemo.swift in Sources */,
 				DC66C796230A6A0E00423E15 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

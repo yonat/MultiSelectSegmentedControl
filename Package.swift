@@ -11,7 +11,7 @@ let package = Package(
         .library(name: "MultiSelectSegmentedControl", targets: ["MultiSelectSegmentedControl"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/yonat/SweeterSwift", from: "1.0.2"),
+        .package(url: "https://github.com/yonat/SweeterSwift", from: "1.0.4"),
     ],
     targets: [
         .target(name: "MultiSelectSegmentedControl", dependencies: ["SweeterSwift"], path: "Sources"),

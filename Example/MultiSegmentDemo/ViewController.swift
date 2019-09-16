@@ -9,12 +9,17 @@
 import MultiSelectSegmentedControl
 import UIKit
 
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
+
 class ViewController: UIViewController {
     @IBOutlet var weekControl: MultiSelectSegmentedControl!
     @IBOutlet var verticalTextControl: MultiSelectSegmentedControl!
     @IBOutlet var imagesControl: MultiSelectSegmentedControl!
     @IBOutlet var mixedControl: MultiSelectSegmentedControl!
     @IBOutlet var segmentIndexField: UITextField!
+    @IBOutlet var showSwiftUIButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +40,16 @@ class ViewController: UIViewController {
         verticalTextControl.setTitleTextAttributes([.obliqueness: 0.25], for: .normal)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if #available(iOS 13.0, *) {
+            showSwiftUIButton.isHidden = false
+            showSwiftUIButton.layer.borderWidth = 1
+            showSwiftUIButton.layer.cornerRadius = showSwiftUIButton.frame.height / 2
+            showSwiftUIButton.layer.borderColor = view.actualTintColor.cgColor
+        }
+    }
+
     @IBAction func addSegment() {
         guard let indexText = segmentIndexField.text, let index = Int(indexText) else { return }
         verticalTextControl.insertSegment(withTitle: indexText, at: index, animated: true)
@@ -47,6 +62,14 @@ class ViewController: UIViewController {
 
     @objc func mixedChanged(multiSelectSegmentedControl: MultiSelectSegmentedControl) {
         print(multiSelectSegmentedControl.selectedSegmentTitles)
+    }
+
+    @IBAction func showSwiftUIDemo() {
+        #if canImport(SwiftUI)
+        if #available(iOS 13.0, *) {
+            present(UIHostingController(rootView: MultiSegmentPickerDemo()), animated: true)
+        }
+        #endif
     }
 }
 

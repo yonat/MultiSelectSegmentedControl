@@ -25,6 +25,17 @@ Very similar to `UISegmentedControl`, can be used as a drop-in replacement in mo
 
 If you use Interface Builder, add a regular `UIView` and then set its class to `MultiSelectSegmentedControl`.
 
+### SwiftUI Usage
+
+```swift
+MultiSegmentPicker(
+    selectedSegmentIndexes: $indexSet,
+    items: ["One", "Two", image, [image2, "Text"], "Last"]
+)
+```
+
+The properties mentioned below can be passed as arguments to the `MultiSegmentPicker` initializer.
+
 ### Creating Segments
 
 Each segment can contain an image, a text, or both:
