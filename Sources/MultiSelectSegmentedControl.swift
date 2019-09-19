@@ -70,7 +70,7 @@ import UIKit
     /// - Parameter index: Where to insert the segment (default: at the end)
     /// - Parameter animated: Animate the insertion (default: false)
     @objc open func insertSegment(contents: [Any], at index: Int = UISegmentedControl.noSegment, animated: Bool = false) {
-        let segment = MultiSelectSegment(contents: contents, isVerticalSegmentContents: isVerticalSegmentContents)
+        let segment = MultiSelectSegment(contents: contents, parent: self)
         segment.tintColor = tintColor
         segment.isHidden = true
         perform(animated: animated) { [stackView] in
@@ -124,7 +124,7 @@ import UIKit
     /// Stack each segment contents vertically when it contains both text and image. (default: `false`)
     @IBInspectable open dynamic var isVerticalSegmentContents: Bool = false {
         didSet {
-            segments.forEach { $0.isVerticalSegmentContents = isVerticalSegmentContents }
+            segments.forEach { $0.updateContentsAxis() }
         }
     }
 

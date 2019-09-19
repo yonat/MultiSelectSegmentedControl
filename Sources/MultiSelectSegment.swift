@@ -9,6 +9,8 @@ import SweeterSwift
 import UIKit
 
 public class MultiSelectSegment: UIView {
+    weak var parent: MultiSelectSegmentedControl?
+
     public var contents: [Any] {
         get {
             return stackView.arrangedSubviews.compactMap {
@@ -88,15 +90,15 @@ public class MultiSelectSegment: UIView {
         return stackView.arrangedSubviews.first { $0 is UILabel } as? UILabel
     }
 
-    var isVerticalSegmentContents: Bool {
-        get { return stackView.axis == .vertical }
-        set { stackView.axis = newValue ? .vertical : .horizontal }
+    convenience init(contents: [Any], parent: MultiSelectSegmentedControl) {
+        self.init(frame: .zero)
+        self.parent = parent
+        self.contents = contents
+        updateContentsAxis()
     }
 
-    convenience init(contents: [Any], isVerticalSegmentContents: Bool = false) {
-        self.init(frame: .zero)
-        self.contents = contents
-        self.isVerticalSegmentContents = isVerticalSegmentContents
+    func updateContentsAxis() {
+        stackView.axis = parent?.isVerticalSegmentContents ?? false ? .vertical : .horizontal
     }
 
     // MARK: - Overrides
@@ -133,7 +135,7 @@ public class MultiSelectSegment: UIView {
 
     private func updateColors() {
         backgroundColor = isSelected ? actualTintColor : .clear
-        let foregroundColor: UIColor = isSelected ? superview?.superview?.backgroundBehind ?? .background : actualTintColor
+        let foregroundColor: UIColor = isSelected ? parent?.backgroundBehind ?? .background : actualTintColor
         for contentView in stackView.arrangedSubviews {
             if let label = contentView as? UILabel {
                 label.textColor = foregroundColor
