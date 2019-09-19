@@ -128,6 +128,12 @@ import UIKit
         }
     }
 
+    public dynamic var titleTextAttributes: [UIControl.State: [NSAttributedString.Key: Any]] = [:] {
+        didSet {
+            segments.forEach { $0.updateTitleAttributes() }
+        }
+    }
+
     // MARK: - UISegmentedControl Compatibility
 
     @objc public convenience init(items: [Any]? = nil) {
@@ -174,6 +180,14 @@ import UIKit
     @objc public func titleForSegment(at index: Int) -> String? {
         guard index >= 0 && index < segments.count else { return nil }
         return segments[index].title
+    }
+
+    @objc public func setTitleTextAttributes(_ attributes: [NSAttributedString.Key: Any]?, for state: UIControl.State) {
+        titleTextAttributes[state] = attributes
+    }
+
+    @objc public func titleTextAttributes(for state: UIControl.State) -> [NSAttributedString.Key: Any]? {
+        return titleTextAttributes[state]
     }
 
     @objc public func insertSegment(with image: UIImage, at index: Int = UISegmentedControl.noSegment, animated: Bool = false) {
@@ -285,14 +299,6 @@ import UIKit
         }
     }
 
-    private func perform(animated: Bool, action: @escaping () -> Void) {
-        if animated {
-            UIView.animate(withDuration: 0.25, animations: action)
-        } else {
-            action()
-        }
-    }
-
     // MARK: - Dividers
 
     private func showDividersBetweenSelectedSegments() {
@@ -348,3 +354,15 @@ import UIKit
         }
     }
 }
+
+extension UIView {
+    func perform(animated: Bool, action: @escaping () -> Void) {
+        if animated {
+            UIView.animate(withDuration: 0.25, animations: action)
+        } else {
+            action()
+        }
+    }
+}
+
+extension UIControl.State: Hashable {}

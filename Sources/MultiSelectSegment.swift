@@ -37,6 +37,7 @@ public class MultiSelectSegment: UIView {
     public var isSelected: Bool = false {
         didSet {
             updateColors()
+            updateTitleAttributes()
             if isSelected {
                 accessibilityTraits.insert(.selected)
             } else {
@@ -52,6 +53,7 @@ public class MultiSelectSegment: UIView {
         set {
             isUserInteractionEnabled = newValue
             stackView.alpha = newValue ? 1 : 1 / 3
+            updateTitleAttributes()
         }
     }
 
@@ -95,6 +97,7 @@ public class MultiSelectSegment: UIView {
         self.parent = parent
         self.contents = contents
         updateContentsAxis()
+        updateTitleAttributes()
     }
 
     func updateContentsAxis() {
@@ -142,6 +145,21 @@ public class MultiSelectSegment: UIView {
             } else {
                 contentView.tintColor = foregroundColor
             }
+        }
+    }
+
+    func updateTitleAttributes() {
+        guard let titleTextAttributes = parent?.titleTextAttributes, !titleTextAttributes.isEmpty else { return }
+        for label in stackView.arrangedSubviews.compactMap({ $0 as? UILabel }) {
+            guard let text = label.text else { continue }
+            var attributes = titleTextAttributes[.normal] ?? [:]
+            if !isEnabled {
+                attributes.merge(titleTextAttributes[.disabled] ?? [:]) { _, new in new }
+            }
+            if isSelected {
+                attributes.merge(titleTextAttributes[.selected] ?? [:]) { _, new in new }
+            }
+            label.attributedText = NSAttributedString(string: text, attributes: attributes)
         }
     }
 }

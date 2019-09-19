@@ -30,6 +30,9 @@ class ViewController: UIViewController {
         imagesControl.delegate = self
 
         mixedControl.addTarget(self, action: #selector(mixedChanged), for: .valueChanged)
+
+        verticalTextControl.setTitleTextAttributes([.foregroundColor: UIColor.yellow], for: .selected)
+        verticalTextControl.setTitleTextAttributes([.obliqueness: 0.25], for: .normal)
     }
 
     @IBAction func addSegment() {

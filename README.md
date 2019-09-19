@@ -134,7 +134,6 @@ dependencies: [
 
 ## TODO
 
-- [ ] `titleTextAttributes: [UIControl.State: [NSAttributedString.Key : Any]]`
 - [ ] foreground color of selected segment should be/appear transparent
 - [ ] configure segment `layoutMargins`, `stackView.spacing`
 
