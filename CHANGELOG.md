@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - fix stretched symbol font images.
+- use superview background color for selected foreground color.
 
 ## [2.0.2] - 2019-09-13
 

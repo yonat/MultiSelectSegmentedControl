@@ -133,7 +133,7 @@ public class MultiSelectSegment: UIView {
 
     private func updateColors() {
         backgroundColor = isSelected ? actualTintColor : .clear
-        let foregroundColor: UIColor = isSelected ? .background : actualTintColor
+        let foregroundColor: UIColor = isSelected ? superview?.superview?.backgroundBehind ?? .background : actualTintColor
         for contentView in stackView.arrangedSubviews {
             if let label = contentView as? UILabel {
                 label.textColor = foregroundColor
@@ -163,5 +163,18 @@ extension UIColor {
         } else {
             return .white
         }
+    }
+}
+
+extension UIView {
+    var backgroundBehind: UIColor? {
+        var viewBehind = superview
+        while let currentViewBehind = viewBehind {
+            if let coloredBackground = currentViewBehind.backgroundColor, coloredBackground != .clear {
+                return coloredBackground
+            }
+            viewBehind = currentViewBehind.superview
+        }
+        return nil
     }
 }
