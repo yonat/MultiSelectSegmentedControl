@@ -188,6 +188,7 @@ extension UIColor {
 
 extension UIView {
     var backgroundBehind: UIColor? {
+        if let backgroundColor = backgroundColor, backgroundColor != .clear { return backgroundColor }
         var viewBehind = superview
         while let currentViewBehind = viewBehind {
             if let coloredBackground = currentViewBehind.backgroundColor, coloredBackground != .clear {
