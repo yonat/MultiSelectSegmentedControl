@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - when the `backgroundColor` is set, use it as forground color of selected segments.
+- when `borderWidth` is smaller than 1, don't let the background spill over the border.
 
 ## [2.1.0] - 2019-09-19
 

@@ -98,6 +98,8 @@ import UIKit
             for divider in dividers {
                 constrainDividerToControl(divider: divider)
             }
+            constrain(stackView, at: .left, to: borderView, diff: borderWidth)
+            constrain(stackView, at: .right, to: borderView, diff: -borderWidth)
         }
     }
 
