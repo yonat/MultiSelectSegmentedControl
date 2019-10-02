@@ -10,7 +10,6 @@ import UIKit
 
 public class MultiSelectSegment: UIView {
     weak var parent: MultiSelectSegmentedControl?
-    var selectedBackgroundColor: UIColor?
 
     public var contents: [Any] {
         get {
@@ -137,8 +136,8 @@ public class MultiSelectSegment: UIView {
         accessibilityIdentifier = "MultiSelectSegment"
     }
 
-    private func updateColors() {
-        let realSelectedBackgroundColor = selectedBackgroundColor ?? actualTintColor
+    func updateColors() {
+        let realSelectedBackgroundColor = parent?.selectedBackgroundColor ?? actualTintColor
         backgroundColor = isSelected ? realSelectedBackgroundColor : .clear
         let foregroundColor: UIColor = isSelected ? parent?.backgroundBehind ?? .background : actualTintColor
         for contentView in stackView.arrangedSubviews {

@@ -20,9 +20,7 @@ import UIKit
     /// Optional selected background color, if different than tintColor
     @objc public var selectedBackgroundColor: UIColor? {
         didSet {
-            if segments.count > 0 {
-                segments.forEach { $0.selectedBackgroundColor = self.selectedBackgroundColor }
-            }
+            segments.forEach { $0.updateColors() }
         }
     }
 
@@ -80,7 +78,6 @@ import UIKit
     /// - Parameter animated: Animate the insertion (default: false)
     @objc open func insertSegment(contents: [Any], at index: Int = UISegmentedControl.noSegment, animated: Bool = false) {
         let segment = MultiSelectSegment(contents: contents, parent: self)
-        segment.selectedBackgroundColor = selectedBackgroundColor
         segment.tintColor = tintColor
         segment.isHidden = true
         perform(animated: animated) { [stackView] in
