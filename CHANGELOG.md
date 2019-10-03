@@ -4,10 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- add `selectedBackgroundColor`. (Thanks jemise111)
+
+### Fixed
+- on changing the `backgroundColor`, update the front color of selected segments.
+
 ## [2.1.1] - 2019-09-20
 
 ### Fixed
-- when the `backgroundColor` is set, use it as forground color of selected segments.
+- when the `backgroundColor` is set, use it as foreground color of selected segments.
 - when `borderWidth` is smaller than 1, don't let the background spill over the border.
 
 ## [2.1.0] - 2019-09-19

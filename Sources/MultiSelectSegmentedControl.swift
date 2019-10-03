@@ -249,6 +249,12 @@ import UIKit
         setup()
     }
 
+    open override var backgroundColor: UIColor? {
+        didSet {
+            segments.forEach { $0.updateColors() }
+        }
+    }
+
     open override func tintColorDidChange() {
         super.tintColorDidChange()
         let newTint = actualTintColor
