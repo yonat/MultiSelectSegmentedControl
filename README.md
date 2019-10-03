@@ -97,6 +97,12 @@ Color:
 multiSelect.tintColor = .green
 ```
 
+Background Color (optional - use if background color should be different from tint color):
+
+```swift
+multiSelect.selectedBackgroundColor = .blue
+```
+
 Shape:
 
 ```swift

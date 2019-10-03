@@ -136,8 +136,9 @@ public class MultiSelectSegment: UIView {
         accessibilityIdentifier = "MultiSelectSegment"
     }
 
-    private func updateColors() {
-        backgroundColor = isSelected ? actualTintColor : .clear
+    func updateColors() {
+        let realSelectedBackgroundColor = parent?.selectedBackgroundColor ?? actualTintColor
+        backgroundColor = isSelected ? realSelectedBackgroundColor : .clear
         let foregroundColor: UIColor = isSelected ? parent?.backgroundBehind ?? .background : actualTintColor
         for contentView in stackView.arrangedSubviews {
             if let label = contentView as? UILabel {

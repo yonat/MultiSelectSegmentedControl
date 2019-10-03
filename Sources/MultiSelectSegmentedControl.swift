@@ -136,6 +136,13 @@ import UIKit
         }
     }
 
+    /// Optional selected background color, if different than tintColor
+    @IBInspectable open dynamic var selectedBackgroundColor: UIColor? {
+        didSet {
+            segments.forEach { $0.updateColors() }
+        }
+    }
+
     // MARK: - UISegmentedControl Compatibility
 
     @objc public convenience init(items: [Any]? = nil) {
