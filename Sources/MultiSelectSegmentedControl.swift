@@ -17,13 +17,6 @@ import UIKit
 
     // MARK: - UISegmentedControl Enhancements
 
-    /// Optional selected background color, if different than tintColor
-    @objc public var selectedBackgroundColor: UIColor? {
-        didSet {
-            segments.forEach { $0.updateColors() }
-        }
-    }
-
     /// Items shown in segments. Each item can be a `String`, a `UIImage`, or an array of strings and images.
     @objc public var items: [Any] {
         get {
@@ -140,6 +133,13 @@ import UIKit
     public dynamic var titleTextAttributes: [UIControl.State: [NSAttributedString.Key: Any]] = [:] {
         didSet {
             segments.forEach { $0.updateTitleAttributes() }
+        }
+    }
+
+    /// Optional selected background color, if different than tintColor
+    @IBInspectable open dynamic var selectedBackgroundColor: UIColor? {
+        didSet {
+            segments.forEach { $0.updateColors() }
         }
     }
 
