@@ -37,7 +37,6 @@ public class MultiSelectSegment: UIView {
     public var isSelected: Bool = false {
         didSet {
             updateColors()
-            updateTitleAttributes()
             if isSelected {
                 accessibilityTraits.insert(.selected)
             } else {
@@ -147,6 +146,8 @@ public class MultiSelectSegment: UIView {
                 contentView.tintColor = foregroundColor
             }
         }
+
+        updateTitleAttributes()
     }
 
     func updateTitleAttributes() {
