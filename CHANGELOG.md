@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - don't change title's `NSAttributedString.Key.foregroundColor` after dismissing a modal.
 
+### Changed
+- up iOS version to 11 so that CocoaPods will allow the SwiftUI code.
+
 ## [2.3.0] - 2019-10-10
 
 ### Added
