@@ -136,6 +136,15 @@ import UIKit
         }
     }
 
+    /// Configure additional properties of segments titles. For example: `multiSegment.titleConfigurationHandler = { $0.numberOfLines = 0 }`
+    @objc open dynamic var titleConfigurationHandler: ((UILabel) -> Void)? {
+        didSet {
+            for segment in segments {
+                segment.updateLabelConfiguration()
+            }
+        }
+    }
+
     /// Optional selected background color, if different than tintColor
     @IBInspectable open dynamic var selectedBackgroundColor: UIColor? {
         didSet {

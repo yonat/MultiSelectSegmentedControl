@@ -133,6 +133,22 @@ Stack each segment contents vertically when it contains both image and text:
 multiSelect.isVerticalSegmentContents = true
 ```
 
+Text styling:
+
+```swift
+multiSelect.setTitleTextAttributes([.foregroundColor: UIColor.yellow], for: .selected)
+multiSelect.setTitleTextAttributes([.obliqueness: 0.25], for: .normal)
+```
+
+More label styling:
+
+```swift
+multiSelect.titleConfigurationHandler = {
+    $0.numberOfLines = 0
+    $0.lineBreakMode = .byWordWrapping
+}
+```
+
 ## Installation
 
 ### CocoaPods:

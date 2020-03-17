@@ -28,7 +28,7 @@ public class MultiSelectSegment: UIView {
                     stackView.addArrangedSubview(imageView)
                 } else {
                     accessibilityLabel = "\(contentItem)"
-                    stackView.addArrangedSubview(UILabel(centeredText: accessibilityLabel))
+                    addLabel(text: accessibilityLabel)
                 }
             }
         }
@@ -77,7 +77,7 @@ public class MultiSelectSegment: UIView {
             if let label = label {
                 label.text = newValue
             } else {
-                stackView.addArrangedSubview(UILabel(centeredText: newValue))
+                addLabel(text: newValue)
             }
             accessibilityLabel = newValue
         }
@@ -124,6 +124,10 @@ public class MultiSelectSegment: UIView {
 
     let stackView = UIStackView()
 
+    var labels: [UILabel] {
+        return stackView.arrangedSubviews.compactMap { $0 as? UILabel }
+    }
+
     private func setup() {
         addConstrainedSubview(stackView, constrain: .topMargin, .bottomMargin, .leftMargin, .rightMargin)
         layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
@@ -152,7 +156,7 @@ public class MultiSelectSegment: UIView {
 
     func updateTitleAttributes() {
         guard let titleTextAttributes = parent?.titleTextAttributes, !titleTextAttributes.isEmpty else { return }
-        for label in stackView.arrangedSubviews.compactMap({ $0 as? UILabel }) {
+        for label in labels {
             guard let text = label.text else { continue }
             var attributes = titleTextAttributes[.normal] ?? [:]
             if !isEnabled {
@@ -164,17 +168,24 @@ public class MultiSelectSegment: UIView {
             label.attributedText = NSAttributedString(string: text, attributes: attributes)
         }
     }
-}
 
-extension UILabel {
-    convenience init(centeredText: String?) {
-        self.init()
-        text = centeredText
-        textAlignment = .center
-        font = .preferredFont(forTextStyle: .footnote)
-        if #available(iOS 10.0, *) {
-            adjustsFontForContentSizeCategory = true
+    func updateLabelConfiguration() {
+        guard let titleConfigurationHandler = parent?.titleConfigurationHandler else { return }
+        for label in labels {
+            titleConfigurationHandler(label)
         }
+    }
+
+    func addLabel(text: String?) {
+        let label = UILabel()
+        label.text = text
+        label.textAlignment = .center
+        label.font = .preferredFont(forTextStyle: .footnote)
+        if #available(iOS 10.0, *) {
+            label.adjustsFontForContentSizeCategory = true
+        }
+        parent?.titleConfigurationHandler?(label)
+        stackView.addArrangedSubview(label)
     }
 }
 

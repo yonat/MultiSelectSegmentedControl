@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="80" y="16" width="160" height="30"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5A-Y5-Qfg" customClass="MultiSelectSegmentedControl" customModule="MultiSelectSegmentedControl">
-                                <rect key="frame" x="20" y="456" width="53" height="96"/>
+                                <rect key="frame" x="20" y="456" width="57" height="96"/>
                                 <color key="tintColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderRadius">
@@ -83,7 +83,7 @@
                                 </subviews>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CeH-tO-pEz">
-                                <rect key="frame" x="89" y="124" width="142" height="26"/>
+                                <rect key="frame" x="93" y="124" width="138" height="26"/>
                                 <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
                                 <state key="normal" title="Show in SwiftUI View"/>
                                 <connections>
@@ -98,6 +98,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="R0A-RP-fJL" secondAttribute="trailing" constant="20" id="9CO-4P-u8B"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="K5A-Y5-Qfg" secondAttribute="bottom" constant="16" id="DDH-0b-cop"/>
                             <constraint firstItem="K5A-Y5-Qfg" firstAttribute="leading" secondItem="DxK-Qx-6NQ" secondAttribute="leading" priority="250" id="ESW-BJ-i4G"/>
+                            <constraint firstItem="P1m-HH-63j" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="HsA-G6-g3x"/>
                             <constraint firstItem="DxK-Qx-6NQ" firstAttribute="top" secondItem="P1m-HH-63j" secondAttribute="bottom" constant="16" id="J4X-9J-XYb"/>
                             <constraint firstItem="CeH-tO-pEz" firstAttribute="trailing" secondItem="R0A-RP-fJL" secondAttribute="leading" constant="-16" id="SVb-1f-EOl"/>
                             <constraint firstItem="CeH-tO-pEz" firstAttribute="leading" secondItem="K5A-Y5-Qfg" secondAttribute="trailing" constant="16" id="Sr7-QL-n5O"/>
