@@ -85,6 +85,7 @@ import UIKit
             }
             segment.isHidden = false
             self.showDividersBetweenSelectedSegments()
+            self.invalidateIntrinsicContentSize()
         }
     }
 
@@ -100,6 +101,7 @@ import UIKit
             }
             constrain(stackView, at: .left, to: borderView, diff: borderWidth)
             constrain(stackView, at: .right, to: borderView, diff: -borderWidth)
+            invalidateIntrinsicContentSize()
         }
     }
 
@@ -120,6 +122,7 @@ import UIKit
             DispatchQueue.main.async { // wait for new layout to take effect, to prevent auto layout error
                 self.addAllDividers()
             }
+            invalidateIntrinsicContentSize()
         }
     }
 
@@ -127,12 +130,14 @@ import UIKit
     @IBInspectable open dynamic var isVerticalSegmentContents: Bool = false {
         didSet {
             segments.forEach { $0.updateContentsAxis() }
+            invalidateIntrinsicContentSize()
         }
     }
 
     public dynamic var titleTextAttributes: [UIControl.State: [NSAttributedString.Key: Any]] = [:] {
         didSet {
             segments.forEach { $0.updateTitleAttributes() }
+            invalidateIntrinsicContentSize()
         }
     }
 
@@ -142,6 +147,7 @@ import UIKit
             for segment in segments {
                 segment.updateLabelConfiguration()
             }
+            invalidateIntrinsicContentSize()
         }
     }
 
@@ -177,12 +183,16 @@ import UIKit
     /// Use different size for each segment, depending on its content size. (default: `false`)
     @IBInspectable public dynamic var apportionsSegmentWidthsByContent: Bool {
         get { return stackView.distribution != .fillEqually }
-        set { stackView.distribution = newValue ? .fill : .fillEqually }
+        set {
+            stackView.distribution = newValue ? .fill : .fillEqually
+            invalidateIntrinsicContentSize()
+        }
     }
 
     @objc public func setImage(_ image: UIImage?, forSegmentAt index: Int) {
         guard index >= 0 && index < segments.count else { return }
         segments[index].image = image
+        invalidateIntrinsicContentSize()
     }
 
     @objc public func imageForSegment(at index: Int) -> UIImage? {
@@ -193,6 +203,7 @@ import UIKit
     @objc public func setTitle(_ title: String?, forSegmentAt index: Int) {
         guard index >= 0 && index < segments.count else { return }
         segments[index].title = title
+        invalidateIntrinsicContentSize()
     }
 
     @objc public func titleForSegment(at index: Int) -> String? {
@@ -202,6 +213,7 @@ import UIKit
 
     @objc public func setTitleTextAttributes(_ attributes: [NSAttributedString.Key: Any]?, for state: UIControl.State) {
         titleTextAttributes[state] = attributes
+        invalidateIntrinsicContentSize()
     }
 
     @objc public func titleTextAttributes(for state: UIControl.State) -> [NSAttributedString.Key: Any]? {
@@ -219,6 +231,7 @@ import UIKit
     @objc public func removeAllSegments() {
         removeAllDividers()
         stackView.removeAllArrangedSubviewsCompletely()
+        invalidateIntrinsicContentSize()
     }
 
     @objc public func removeSegment(at index: Int, animated: Bool) {
@@ -233,6 +246,7 @@ import UIKit
             self.stackView.removeArrangedSubviewCompletely(segment)
             self.insertDivider(afterSegment: index - 1) // before removed segment
             self.showDividersBetweenSelectedSegments()
+            self.invalidateIntrinsicContentSize()
         }
     }
 
@@ -278,7 +292,8 @@ import UIKit
     }
 
     open override var intrinsicContentSize: CGSize { // to pacify Interface Builder frame calculations
-        return borderView.intrinsicContentSize
+        let stackViewSize = stackView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        return CGRect(origin: .zero, size: stackViewSize).insetBy(dx: -borderWidth, dy: -borderWidth).size
     }
 
     // MARK: - Internals
