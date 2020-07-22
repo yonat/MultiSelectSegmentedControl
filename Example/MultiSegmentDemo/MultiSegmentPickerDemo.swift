@@ -20,6 +20,9 @@ struct MultiSegmentPickerDemo: View {
                 selectedSegmentIndexes: $selectedSegmentIndexes,
                 items: ["First", "Second", "Third", "Done"]
             )
+            .fixedSize(horizontal: false, vertical: true)
+
+            Spacer()
 
             MultiSegmentPicker(
                 selectedSegmentIndexes: $selectedSegmentIndexes,
@@ -34,6 +37,7 @@ struct MultiSegmentPickerDemo: View {
             )
             .isVerticalSegmentContents(true)
             .accentColor(.purple)
+            .fixedSize()
 
             Spacer()
 
@@ -44,6 +48,7 @@ struct MultiSegmentPickerDemo: View {
                 )
                 .isVertical(true)
                 .accentColor(.green)
+                .padding()
 
                 Spacer()
 
@@ -54,7 +59,9 @@ struct MultiSegmentPickerDemo: View {
                 .isVertical(true)
                 .selectedBackgroundColor(.systemIndigo)
                 .accentColor(.red)
+                .padding()
             }
+            .fixedSize()
         }
         .padding()
     }
