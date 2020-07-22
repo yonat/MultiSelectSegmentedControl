@@ -29,10 +29,10 @@ struct MultiSegmentPickerDemo: View {
                     [UIImage(systemName: "suit.diamond.fill")!, "Diamond"],
                     [UIImage(systemName: "suit.heart.fill")!, "Heart"],
                     [UIImage(systemName: "suit.spade.fill")!, "Spade"],
-                ],
+                ]
                 // swiftlint:enable force_unwrapping
-                isVerticalSegmentContents: true
             )
+            .isVerticalSegmentContents(true)
             .accentColor(.purple)
 
             Spacer()
@@ -40,19 +40,19 @@ struct MultiSegmentPickerDemo: View {
             HStack {
                 MultiSegmentPicker(
                     selectedSegmentIndexes: $selectedSegmentIndexes,
-                    items: ["אחת", "שתיים", "ו-ש-לוש", "הסוף!"],
-                    isVertical: true
+                    items: ["אחת", "שתיים", "ו-ש-לוש", "הסוף!"]
                 )
+                .isVertical(true)
                 .accentColor(.green)
 
                 Spacer()
 
                 MultiSegmentPicker(
                     selectedSegmentIndexes: $selectedSegmentIndexes,
-                    items: ["Lorem ipsum", "dolor sit amet", "consectetur", "adipiscing elit"],
-                    isVertical: true,
-                    selectedBackgroundColor: .systemIndigo
+                    items: ["Lorem ipsum", "dolor sit amet", "consectetur", "adipiscing elit"]
                 )
+                .isVertical(true)
+                .selectedBackgroundColor(.systemIndigo)
                 .accentColor(.red)
             }
         }

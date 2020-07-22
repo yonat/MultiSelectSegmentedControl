@@ -34,7 +34,7 @@ MultiSegmentPicker(
 )
 ```
 
-The properties mentioned below can be passed as arguments to the `MultiSegmentPicker` initializer.
+The properties mentioned below can be passed as arguments to the `MultiSegmentPicker` initializer, or used as view modifiers (e.g., `.borderWidth(3)`).
 
 ### Creating Segments
 

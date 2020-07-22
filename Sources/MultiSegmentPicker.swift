@@ -64,4 +64,56 @@ import SwiftUI
     }
 }
 
+@available(iOS 13.0, *) public extension MultiSegmentPicker {
+    func allowsMultipleSelection(_ allowsMultipleSelection: Bool) -> MultiSegmentPicker {
+        uiView.allowsMultipleSelection = allowsMultipleSelection
+        return self
+    }
+
+    func apportionsSegmentWidthsByContent(_ apportionsSegmentWidthsByContent: Bool) -> MultiSegmentPicker {
+        uiView.apportionsSegmentWidthsByContent = apportionsSegmentWidthsByContent
+        return self
+    }
+
+    func backgroundColor(_ backgroundColor: UIColor) -> MultiSegmentPicker {
+        uiView.backgroundColor = backgroundColor
+        return self
+    }
+
+    func borderWidth(_ borderWidth: CGFloat) -> MultiSegmentPicker {
+        uiView.borderWidth = borderWidth
+        return self
+    }
+
+    func borderRadius(_ borderRadius: CGFloat) -> MultiSegmentPicker {
+        uiView.borderRadius = borderRadius
+        return self
+    }
+
+    func isVertical(_ isVertical: Bool) -> MultiSegmentPicker {
+        uiView.isVertical = isVertical
+        return self
+    }
+
+    func isVerticalSegmentContents(_ isVerticalSegmentContents: Bool) -> MultiSegmentPicker {
+        uiView.isVerticalSegmentContents = isVerticalSegmentContents
+        return self
+    }
+
+    func selectedBackgroundColor(_ selectedBackgroundColor: UIColor) -> MultiSegmentPicker {
+        uiView.selectedBackgroundColor = selectedBackgroundColor
+        return self
+    }
+
+    func titleConfigurationHandler(_ titleConfigurationHandler: ((UILabel) -> Void)?) -> MultiSegmentPicker {
+        uiView.titleConfigurationHandler = titleConfigurationHandler
+        return self
+    }
+
+    func titleTextAttributes(_ attributes: [NSAttributedString.Key: Any]?, for state: UIControl.State) -> MultiSegmentPicker {
+        uiView.setTitleTextAttributes(attributes, for: state)
+        return self
+    }
+}
+
 #endif
