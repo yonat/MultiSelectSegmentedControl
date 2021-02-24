@@ -359,8 +359,8 @@ import UIKit
             constrain(divider, at: .top, to: segment, at: .bottom)
             constrain(divider, at: .bottom, to: segments[index + 1], at: .top)
         } else {
-            constrain(divider, at: .left, to: segment, at: .right)
-            constrain(divider, at: .right, to: segments[index + 1], at: .left)
+            constrain(divider, at: .leading, to: segment, at: .trailing)
+            constrain(divider, at: .trailing, to: segments[index + 1], at: .leading)
         }
     }
 
