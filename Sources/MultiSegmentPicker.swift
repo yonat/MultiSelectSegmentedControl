@@ -28,6 +28,7 @@ import SwiftUI
     ) {
         _selectedSegmentIndexes = selectedSegmentIndexes
         uiView = MultiSelectSegmentedControl(items: items)
+        uiView.translatesAutoresizingMaskIntoConstraints = false
 
         uiView.allowsMultipleSelection =? allowsMultipleSelection
         uiView.borderWidth =? borderWidth

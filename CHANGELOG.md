@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 - fix layout when `semanticContentAttribute = .forceRightToLeft`.
+- better SwiftUI layout without `fixedSize()`.
 
 ## [2.3.4] - 2020-07-22
 
