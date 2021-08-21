@@ -161,7 +161,7 @@ pod 'MultiSelectSegmentedControl'
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yonat/MultiSelectSegmentedControl", from: "2.3.5")
+    .package(url: "https://github.com/yonat/MultiSelectSegmentedControl", from: "2.3.6")
 ]
 ```
 
