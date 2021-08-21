@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "MultiSelectSegmentedControl",
     platforms: [
-        .iOS(.v9),
+        .iOS(.v11),
     ],
     products: [
         .library(name: "MultiSelectSegmentedControl", targets: ["MultiSelectSegmentedControl"]),

@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+- change spm platform to iOS 11 to resolve build errors. (Thanks marcocebrian!)
+
 ## [2.3.5] - 2021-02-24
 
 ### Fixed
