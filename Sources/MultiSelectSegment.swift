@@ -34,7 +34,7 @@ public class MultiSelectSegment: UIView {
         }
     }
 
-    public var isSelected: Bool = false {
+    public var isSelected = false {
         didSet {
             updateColors()
             if isSelected {
@@ -115,7 +115,7 @@ public class MultiSelectSegment: UIView {
         setup()
     }
 
-    public override func tintColorDidChange() {
+    override public func tintColorDidChange() {
         super.tintColorDidChange()
         updateColors()
     }

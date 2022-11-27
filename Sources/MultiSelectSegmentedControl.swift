@@ -262,7 +262,7 @@ import UIKit
 
     // MARK: - Overrides
 
-    public override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
@@ -272,13 +272,13 @@ import UIKit
         setup()
     }
 
-    open override var backgroundColor: UIColor? {
+    override open var backgroundColor: UIColor? {
         didSet {
             segments.forEach { $0.updateColors() }
         }
     }
 
-    open override func tintColorDidChange() {
+    override open func tintColorDidChange() {
         super.tintColorDidChange()
         let newTint = actualTintColor
         borderView.layer.borderColor = newTint.cgColor
@@ -286,12 +286,12 @@ import UIKit
         segments.forEach { $0.tintColor = tintColor }
     }
 
-    open override func prepareForInterfaceBuilder() {
+    override open func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         items = ["Lorem", "Ipsum", "Sit"]
     }
 
-    open override var intrinsicContentSize: CGSize { // to pacify Interface Builder frame calculations
+    override open var intrinsicContentSize: CGSize { // to pacify Interface Builder frame calculations
         let stackViewSize = stackView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         return CGRect(origin: .zero, size: stackViewSize).insetBy(dx: -borderWidth, dy: -borderWidth).size
     }
