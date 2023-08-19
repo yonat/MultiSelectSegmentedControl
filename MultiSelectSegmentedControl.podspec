@@ -25,6 +25,7 @@ UISegmentedControl remake that supports selection multiple segments, vertical st
 
   s.source       = { :git => "https://github.com/yonat/MultiSelectSegmentedControl.git", :tag => s.version }
   s.source_files  = "Sources/*.swift"
+  s.resources = ['PrivacyInfo.xcprivacy']
 
   s.dependency 'SweeterSwift'
 

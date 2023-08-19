@@ -1,12 +1,12 @@
 PODS:
   - MultiSelectSegmentedControl (2.3.6):
     - SweeterSwift
-  - SweeterSwift (1.1.4)
-  - SwiftFormat/CLI (0.50.4)
-  - SwiftLint (0.50.1)
-  - SwiftQuality (2.0.0):
-    - SwiftFormat/CLI (= 0.50.4)
-    - SwiftLint (= 0.50.1)
+  - SweeterSwift (1.2.2)
+  - SwiftFormat/CLI (0.50.7)
+  - SwiftLint (0.50.3)
+  - SwiftQuality (2.0.1):
+    - SwiftFormat/CLI (= 0.50.7)
+    - SwiftLint (= 0.50.3)
 
 DEPENDENCIES:
   - MultiSelectSegmentedControl (from `..`)
@@ -26,16 +26,16 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftQuality:
-    :commit: a5d464f7de98c03ecbbf0c60c4124faeac67633e
+    :commit: f192ce833f082501a51269c1cb08cf6cf01fa3a3
     :git: https://github.com/yonat/SwiftQuality
 
 SPEC CHECKSUMS:
-  MultiSelectSegmentedControl: 37fcb70250c2e6ec0aff942c15c294161dc7c11b
-  SweeterSwift: 8a90cf3156f5a1b6f39785c479369a16633b5ea9
-  SwiftFormat: 42b2e7e390bffa30ea7a9f2dd8c8872d37f6a093
-  SwiftLint: 6b0cf1f4d619808dbc16e4fab064ce6fc79f090b
-  SwiftQuality: 890e271defff439147373b686a9261dbc1f0c7f6
+  MultiSelectSegmentedControl: a5982baea6355727ee14b2c5d775dd259655793d
+  SweeterSwift: a875c6c0242ed0fb5f7859bf9832fd3648c3822f
+  SwiftFormat: 4fcf72ee44c7198255108c22ed7135c38a36ba6b
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+  SwiftQuality: 8d69820e0f82a25563c3cb33d31b0a11f124ea0c
 
-PODFILE CHECKSUM: 92cd6d87e38c6180a07bf3e6a1b69eebeea75897
+PODFILE CHECKSUM: a42a91aeabe81302058263b67f048a3c8c970017
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.12.1
