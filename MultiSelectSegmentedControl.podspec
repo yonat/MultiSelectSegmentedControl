@@ -15,7 +15,6 @@ UISegmentedControl remake that supports selection multiple segments, vertical st
   s.license      = { :type => "MIT", :file => "LICENSE.txt" }
 
   s.author             = { "Yonat Sharon" => "yonat@ootips.org" }
-  s.social_media_url   = "https://twitter.com/yonatsharon"
 
   s.swift_version = '5.0'
   s.swift_versions = ['5.0']
