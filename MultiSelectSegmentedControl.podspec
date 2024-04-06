@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MultiSelectSegmentedControl"
-  s.version      = "2.3.8"
+  s.version      = "2.3.9"
   s.summary      = "Multiple-Selection Segmented Control"
 
   s.description  = <<-DESC
