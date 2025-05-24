@@ -22,9 +22,8 @@ public class MultiSelectSegment: UIView {
             for contentItem in newValue {
                 if let image = contentItem as? UIImage {
                     let imageView = UIImageView(image: image)
-                    if #available(iOS 11.0, *) {
-                        imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
-                    }
+                    imageView.adjustsImageSizeForAccessibilityContentSizeCategory = true
+                    imageView.contentMode = .scaleAspectFit
                     stackView.addArrangedSubview(imageView)
                 } else {
                     accessibilityLabel = "\(contentItem)"
